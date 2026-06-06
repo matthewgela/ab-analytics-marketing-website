@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import type { Leader } from "@/content/team";
-import { type Accent, accentCycle } from "@/lib/accent";
+import { type Accent, accentCycle, accentIconClass } from "@/lib/accent";
+import { cn } from "@/lib/cn";
 import { fadeUp } from "@/lib/motion";
 
 const leaderAccents: Record<string, Accent> = {
   eliyas: "cyan",
   matthew: "violet",
-  solomon: "emerald",
 };
 
 export default function LeadershipCard({
@@ -28,17 +28,17 @@ export default function LeadershipCard({
       <SpotlightCard
         accent={accent}
         dark
-        className="group flex h-full flex-col overflow-hidden p-0"
+        className="group flex h-full flex-col overflow-hidden sm:flex-row"
       >
         <div
-          className="relative flex h-36 items-end justify-center"
+          className="relative flex shrink-0 items-center justify-center px-8 py-10 sm:w-44 sm:px-6 md:w-48"
           style={{
-            background: `linear-gradient(135deg, ${leader.accent}30 0%, transparent 100%)`,
+            background: `linear-gradient(160deg, ${leader.accent}28 0%, transparent 70%)`,
           }}
         >
-          <div className="grid-bg absolute inset-0 opacity-20" />
+          <div className="grid-bg absolute inset-0 opacity-15" />
           <div
-            className="relative -mb-10 flex h-24 w-24 items-center justify-center rounded-2xl text-2xl font-extrabold text-white shadow-lg"
+            className="relative flex h-20 w-20 items-center justify-center rounded-2xl text-2xl font-extrabold text-white shadow-lg md:h-24 md:w-24 md:text-3xl"
             style={{
               background: `linear-gradient(135deg, ${leader.accent} 0%, #0A1430 130%)`,
             }}
@@ -47,18 +47,20 @@ export default function LeadershipCard({
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col p-6 pt-14">
-          <h3 className="text-xl font-bold tracking-tight text-text-on-dark">
+        <div className="flex flex-1 flex-col border-t hairline-border p-6 sm:border-t-0 sm:border-l sm:py-7 sm:pr-7">
+          <h3 className="text-xl font-bold leading-tight tracking-tight text-text-on-dark md:text-2xl">
             {leader.name}
           </h3>
           <p
-            className="mb-4 text-sm font-semibold"
-            style={{ color: leader.accent }}
+            className={cn(
+              "mt-1.5 text-sm font-semibold md:text-base",
+              accentIconClass[accent],
+            )}
           >
             {leader.role}
           </p>
 
-          <div className="mb-4 flex flex-wrap gap-1.5">
+          <div className="mt-4 flex flex-wrap gap-1.5">
             {leader.credentials.map((c) => (
               <span
                 key={c}
@@ -69,7 +71,7 @@ export default function LeadershipCard({
             ))}
           </div>
 
-          <p className="flex-1 text-sm leading-relaxed text-text-muted-on-dark">
+          <p className="mt-4 flex-1 text-sm leading-relaxed text-text-muted-on-dark md:text-[0.9375rem] md:leading-7">
             {leader.bio}
           </p>
 

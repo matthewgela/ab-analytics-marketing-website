@@ -47,6 +47,6 @@ export const products: Product[] = [
     impact:
       "Unified care pathways, real-time operational dashboards, and sovereign data governance across healthcare networks.",
     status: "validation",
-    accent: "#F43F5E",
+    accent: "#8B5CF6",
   },
 ];

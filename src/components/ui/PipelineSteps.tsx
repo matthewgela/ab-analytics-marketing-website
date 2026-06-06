@@ -11,7 +11,6 @@ import { useRef } from "react";
 import { pipelineSteps } from "@/content/pipeline";
 import {
   accentChipBgClass,
-  accentCycle,
   accentIconClass,
   accentSolidClass,
 } from "@/lib/accent";
@@ -23,6 +22,8 @@ const iconMap = {
   ShieldCheck,
   GraduationCap,
 };
+
+const stepAccents = ["cyan", "violet", "emerald", "cyan"] as const;
 
 export default function PipelineSteps() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -44,7 +45,7 @@ export default function PipelineSteps() {
       <div className="grid gap-8 md:grid-cols-4">
         {pipelineSteps.map((step, index) => {
           const Icon = iconMap[step.icon];
-          const accent = accentCycle[index % accentCycle.length];
+          const accent = stepAccents[index];
           return (
             <motion.div
               key={step.id}

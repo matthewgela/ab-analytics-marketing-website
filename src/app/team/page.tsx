@@ -25,7 +25,7 @@ export default function TeamPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="grid gap-6 md:grid-cols-3"
+            className="grid gap-6 lg:grid-cols-2 lg:gap-8"
           >
             {leaders.map((leader, index) => (
               <LeadershipCard
@@ -50,7 +50,7 @@ export default function TeamPage() {
             <SectionHeading
               eyebrow="Structure"
               title="Organization & Delivery Model"
-              description="Four specialized pods converging on operational autonomy for every engagement."
+              description="A multidisciplinary team spanning design, engineering, and cloud architecture — built to transfer capability, not dependency."
               variant="dark"
             />
             <OrgDiagram />

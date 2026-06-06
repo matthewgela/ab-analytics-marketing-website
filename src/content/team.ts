@@ -24,43 +24,50 @@ export const leaders: Leader[] = [
     role: "Chief Technology Officer",
     bio: "Principal AI Engineer and former Technical Delivery Lead on behalf of a premier global Google Cloud Partner of the Year. Triple-certified Google Cloud Architect, ML Engineer, and Data Engineer. Terraform Certified Associate.",
     initials: "MG",
-    accent: "#1E3A8A",
+    accent: "#8B5CF6",
     credentials: [
       "Google Cloud Architect",
       "ML Engineer",
       "Terraform Certified",
     ],
   },
-  {
-    id: "solomon",
-    name: "Solomon Tesfaye",
-    role: "Development Lead",
-    bio: "Over 10 years of experience in full-stack architecture and local banking frameworks. Formerly led software builds and systems optimization at Awash Bank and other regional institutions.",
-    initials: "ST",
-    accent: "#10B981",
-    credentials: ["Full-Stack Architect", "Banking Systems", "10+ Years"],
-  },
 ];
 
-export const orgPods = [
+export type DeliveryDiscipline = {
+  id: string;
+  name: string;
+  description: string;
+};
+
+export const deliveryDisciplines: DeliveryDiscipline[] = [
   {
-    id: "strategy",
-    name: "Strategy Pod",
-    description: "Diagnostic assessments, sovereignty mapping, and transformation roadmaps.",
+    id: "frontend",
+    name: "Frontend Developers",
+    description:
+      "Production-grade interfaces, design systems, and performant client applications.",
   },
   {
-    id: "engineering",
-    name: "Engineering Pod",
-    description: "Full-stack development, ML engineering, and platform architecture.",
+    id: "backend",
+    name: "Backend Developers",
+    description:
+      "APIs, data layers, integrations, and platform services built for scale.",
   },
   {
-    id: "mlops",
-    name: "MLOps & PETs Pod",
-    description: "Pipeline automation, privacy protocols, and operational telemetry.",
+    id: "design",
+    name: "UI/UX Designers",
+    description:
+      "User research, interaction design, and cohesive product experiences.",
   },
   {
-    id: "success",
-    name: "Client Success Pod",
-    description: "Tech transfer, upskilling, and long-term operational autonomy.",
+    id: "ai",
+    name: "AI Engineers",
+    description:
+      "ML engineering, generative AI systems, and production model deployment.",
+  },
+  {
+    id: "cloud",
+    name: "Cloud Architects",
+    description:
+      "Infrastructure-as-code, sovereign cloud design, and operational telemetry.",
   },
 ];
