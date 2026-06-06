@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "Team & Delivery",
+  title: "Team",
   description:
     "Meet AB Analytics leadership and explore our operational autonomy delivery pipeline and organizational structure.",
   path: "/team",

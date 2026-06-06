@@ -64,7 +64,7 @@ export default function MobileStickyCta() {
         href="/contact"
         className="flex min-h-11 w-full items-center justify-center rounded-full bg-brand-cyan text-sm font-medium text-bg-deep"
       >
-        Initiate Partnership
+        Contact Us
       </Link>
     </div>
   );

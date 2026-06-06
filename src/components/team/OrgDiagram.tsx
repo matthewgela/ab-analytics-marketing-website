@@ -19,6 +19,14 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 
 const disciplineIcons = [Layout, Server, Palette, Brain, Cloud];
 
+const disciplineAccents = [
+  "cyan",
+  "violet",
+  "emerald",
+  "violet",
+  "cyan",
+] as const;
+
 export default function OrgDiagram() {
   return (
     <div className="relative">
@@ -31,7 +39,7 @@ export default function OrgDiagram() {
       >
         {deliveryDisciplines.map((discipline, i) => {
           const Icon = disciplineIcons[i] ?? Layout;
-          const accent = accentCycle[i % accentCycle.length];
+          const accent = disciplineAccents[i];
           return (
             <motion.div key={discipline.id} variants={fadeUp} className="h-full">
               <SpotlightCard accent={accent} dark className="flex h-full flex-col p-6">

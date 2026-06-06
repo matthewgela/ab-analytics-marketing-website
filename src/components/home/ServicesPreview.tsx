@@ -35,7 +35,7 @@ export default function ServicesPreview() {
           href="/services"
           className="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan transition-colors hover:text-white"
         >
-          View all capabilities
+          Explore all services
           <ArrowRight className="h-4 w-4" />
         </Link>
       </div>

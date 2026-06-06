@@ -25,8 +25,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/products", label: "Products" },
-  { href: "/team", label: "Team & Delivery" },
-  { href: "/contact", label: "Contact" },
+  { href: "/team", label: "Team" },
 ];
 
 export default function Navbar() {
@@ -121,7 +120,7 @@ export default function Navbar() {
             href="/contact"
             className="inline-flex min-h-11 items-center rounded-full bg-brand-cyan px-5 py-2 text-sm font-medium text-bg-deep transition-all hover:bg-brand-cyan/90"
           >
-            Initiate Partnership
+            Contact Us
           </Link>
         </div>
 
@@ -183,7 +182,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="mt-auto flex min-h-12 items-center justify-center rounded-full bg-brand-cyan text-base font-medium text-bg-deep"
             >
-              Initiate Partnership
+              Contact Us
             </Link>
           </nav>
         </div>

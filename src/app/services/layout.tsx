@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "Services",
   description:
-    "Eight enterprise AI capabilities: MLOps, generative AI, ML engineering, custom software, marketing, PETs, cloud infrastructure, and transformation strategy.",
+    "Four integrated AI capability areas: MLOps, generative AI, platform engineering, and sovereign data strategy for national-scale deployment.",
   path: "/services",
 });
 
