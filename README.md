@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AB Analytics Marketing Website
+
+Premium corporate portfolio site for AB Analytics — enterprise AI engineering for sovereign environments.
+
+## Stack
+
+- Next.js 16 (App Router) · TypeScript · Tailwind CSS v4
+- Framer Motion · Lucide React · React Three Fiber
+- React Hook Form · Zod
 
 ## Getting Started
 
-First, run the development server:
+Requires **Node.js 20+**.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript check |
 
-## Learn More
+## Routes
 
-To learn more about Next.js, take a look at the following resources:
+- `/` — Home (hero, pillars, stats, services/products preview, intake form)
+- `/services` — 8 capability cards
+- `/products` — Tabbed product gateway (Adey, Nexio, TenaOS, TenaPro)
+- `/team` — Leadership, delivery pipeline, org structure
+- `/contact` — Full enterprise intake form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Brand Assets
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace placeholder SVGs in `public/brand/` with your official logo files. See `public/brand/README.md` for details.
 
-## Deploy on Vercel
+## Contact Form
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Submissions POST to `/api/contact` and log to the server console. Wire to Resend, SendGrid, or HubSpot when ready.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Environment
+
+Optional: set `NEXT_PUBLIC_SITE_URL` for canonical URLs and sitemap.

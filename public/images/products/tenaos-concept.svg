@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" fill="none">
+  <rect width="560" height="360" rx="12" fill="#F0F4F8"/>
+  <rect x="0" y="0" width="560" height="360" rx="12" fill="url(#g)"/>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="560" y2="360"><stop stop-color="#10B981" stop-opacity="0.08"/><stop offset="1" stop-color="#0A1430" stop-opacity="0.05"/></linearGradient></defs>
+  <text x="280" y="160" fill="#0A1430" font-family="system-ui" font-size="24" font-weight="700" text-anchor="middle" opacity="0.3">Tena</text>
+  <text x="280" y="190" fill="#64748B" font-family="system-ui" font-size="11" text-anchor="middle">Healthcare Operating Platform</text>
+  <rect x="180" y="220" width="200" height="28" rx="14" fill="#8B5CF6" opacity="0.15" stroke="#8B5CF6" stroke-width="0.5"/>
+  <text x="280" y="238" fill="#8B5CF6" font-family="system-ui" font-size="9" text-anchor="middle">National Validation Pipeline</text>
+</svg>

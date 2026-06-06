@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" fill="none">
+  <rect width="560" height="360" rx="12" fill="#F0F4F8"/>
+  <rect x="16" y="16" width="528" height="40" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <circle cx="36" cy="36" r="6" fill="#0EA5E9"/>
+  <rect x="52" y="30" width="80" height="12" rx="3" fill="#0A1430" opacity="0.8"/>
+  <rect x="16" y="68" width="160" height="276" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="28" y="80" width="60" height="8" rx="2" fill="#64748B" opacity="0.5"/>
+  <rect x="28" y="100" width="136" height="32" rx="6" fill="#0EA5E9" opacity="0.1" stroke="#0EA5E9" stroke-width="0.5"/>
+  <rect x="28" y="144" width="136" height="24" rx="4" fill="#F0F4F8"/>
+  <rect x="28" y="176" width="136" height="24" rx="4" fill="#F0F4F8"/>
+  <rect x="188" y="68" width="356" height="276" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="204" y="96" fill="#0A1430" font-family="system-ui" font-size="10" font-weight="600">AVAILABILITY CALENDAR</text>
+  <rect x="204" y="108" width="324" height="220" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="220" y="130" width="40" height="30" rx="4" fill="#10B981" opacity="0.3"/>
+  <rect x="268" y="130" width="40" height="30" rx="4" fill="#0EA5E9" opacity="0.4"/>
+  <rect x="316" y="130" width="40" height="30" rx="4" fill="#EF4444" opacity="0.2"/>
+  <rect x="364" y="130" width="40" height="30" rx="4" fill="#10B981" opacity="0.3"/>
+  <rect x="220" y="170" width="40" height="30" rx="4" fill="#0EA5E9" opacity="0.3"/>
+  <rect x="268" y="170" width="40" height="30" rx="4" fill="#10B981" opacity="0.4"/>
+</svg>
