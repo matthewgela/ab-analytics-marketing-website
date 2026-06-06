@@ -4,9 +4,12 @@ import { motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import PipelineSteps from "@/components/ui/PipelineSteps";
-import LeadershipCard from "@/components/team/LeadershipCard";
+import LeadershipCard, {
+  LEADER_BOARD_ROW_TRACKS,
+} from "@/components/team/LeadershipCard";
 import OrgDiagram from "@/components/team/OrgDiagram";
 import { leaders } from "@/content/team";
+import { cn } from "@/lib/cn";
 import { staggerContainer } from "@/lib/motion";
 
 export default function TeamPage() {
@@ -25,7 +28,10 @@ export default function TeamPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="grid gap-6 lg:grid-cols-2 lg:gap-8"
+            className={cn(
+              "grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8",
+              LEADER_BOARD_ROW_TRACKS,
+            )}
           >
             {leaders.map((leader, index) => (
               <LeadershipCard

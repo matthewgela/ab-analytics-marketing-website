@@ -22,10 +22,10 @@ export const accentGradientClass: Record<Accent, string> = {
 };
 
 export const accentBorderHoverClass: Record<Accent, string> = {
-  cyan: "hover:border-brand-cyan/40",
-  violet: "hover:border-brand-violet/40",
-  emerald: "hover:border-brand-emerald/40",
-  royal: "hover:border-brand-royal/40",
+  cyan: "hover:border-brand-cyan/65",
+  violet: "hover:border-brand-violet/65",
+  emerald: "hover:border-brand-emerald/65",
+  royal: "hover:border-brand-royal/65",
 };
 
 export const accentRingClass: Record<Accent, string> = {

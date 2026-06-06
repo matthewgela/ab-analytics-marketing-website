@@ -79,7 +79,7 @@ export default function StatTile({
       ref={ref}
       variants={fadeUp}
       className={cn(
-        "grid grid-cols-[5.5rem_1fr] items-start gap-x-4 rounded-2xl border-[0.5px] p-4 transition-all duration-300 sm:block sm:p-8 sm:hover:-translate-y-1",
+        "interactive-surface grid grid-cols-[5.5rem_1fr] items-start gap-x-4 rounded-2xl border-[0.5px] p-4 sm:block sm:p-8 motion-safe:sm:hover:-translate-y-2 motion-safe:sm:hover:scale-[1.02]",
         isDark
           ? "glass-surface-dark hairline-border hover:border-[color:var(--hairline-hover)]"
           : variant === "surface"

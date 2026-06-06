@@ -34,7 +34,7 @@ export default function ServiceCard({
             alt={service.title}
             fill
             sizes="(max-width: 768px) 100vw, 25vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-110"
           />
         </div>
         <div className="flex flex-1 flex-col p-4 sm:p-6">

@@ -9,7 +9,10 @@
   --surface-page: #0a1430;
   --bg-glass: rgba(255, 255, 255, 0.82);
   --bg-glass-dark: rgba(28, 40, 74, 0.72);
-  --border-grid: rgba(100, 116, 136, 0.18);
+  --border-grid: rgba(100, 116, 136, 0.3);
+  --network-line: rgba(14, 165, 233, 0.34);
+  --network-node: rgba(14, 165, 233, 0.78);
+  --grid-overlay-opacity: 0.11;
   --border-light: rgba(226, 232, 240, 0.9);
   --hairline: rgba(255, 255, 255, 0.1);
   --hairline-muted: rgba(255, 255, 255, 0.05);
@@ -184,15 +187,14 @@ h4 {
   background:
     radial-gradient(
       ellipse 90% 60% at 70% 30%,
-      rgba(14, 165, 233, 0.1) 0%,
+      rgba(14, 165, 233, 0.14) 0%,
       transparent 55%
     ),
     radial-gradient(
       ellipse 70% 50% at 20% 90%,
-      rgba(139, 92, 246, 0.1) 0%,
+      rgba(139, 92, 246, 0.12) 0%,
       transparent 55%
-    ),
-    linear-gradient(180deg, #0a1430 0%, #070f25 100%);
+    );
   color: var(--text-on-dark);
 }
 
@@ -310,9 +312,13 @@ h4 {
 
 .grid-bg {
   background-image:
-    linear-gradient(var(--border-grid) 0.5px, transparent 0.5px),
-    linear-gradient(90deg, var(--border-grid) 0.5px, transparent 0.5px);
+    linear-gradient(var(--border-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-grid) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+.page-grid-overlay {
+  opacity: var(--grid-overlay-opacity);
 }
 
 /* Text gradients */
@@ -346,26 +352,34 @@ h4 {
 
 /* Accent glow shadows */
 .glow-cyan {
-  box-shadow: 0 0 32px rgba(14, 165, 233, 0.2);
+  box-shadow:
+    0 0 40px rgba(14, 165, 233, 0.35),
+    0 12px 32px rgba(14, 165, 233, 0.12);
 }
 
 .glow-violet {
-  box-shadow: 0 0 32px rgba(139, 92, 246, 0.2);
+  box-shadow:
+    0 0 40px rgba(139, 92, 246, 0.35),
+    0 12px 32px rgba(139, 92, 246, 0.12);
 }
 
 .glow-emerald {
-  box-shadow: 0 0 32px rgba(16, 185, 129, 0.2);
+  box-shadow:
+    0 0 40px rgba(16, 185, 129, 0.35),
+    0 12px 32px rgba(16, 185, 129, 0.12);
 }
 
 .glow-royal {
-  box-shadow: 0 0 32px rgba(30, 58, 138, 0.25);
+  box-shadow:
+    0 0 40px rgba(59, 130, 246, 0.38),
+    0 12px 32px rgba(59, 130, 246, 0.14);
 }
 
 /* Spotlight cards */
 .spotlight-card {
   --spot-x: 50%;
   --spot-y: 50%;
-  --spot-color: rgba(14, 165, 233, 0.1);
+  --spot-color: rgba(14, 165, 233, 0.18);
   position: relative;
   overflow: hidden;
 }
@@ -377,12 +391,12 @@ h4 {
   pointer-events: none;
   border-radius: inherit;
   background: radial-gradient(
-    420px circle at var(--spot-x) var(--spot-y),
+    580px circle at var(--spot-x) var(--spot-y),
     var(--spot-color),
-    transparent 65%
+    transparent 58%
   );
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.4s ease;
 }
 
 .spotlight-card:hover::before {
@@ -390,28 +404,44 @@ h4 {
 }
 
 .spotlight-card-dark {
-  --spot-color: rgba(14, 165, 233, 0.12);
+  --spot-color: rgba(14, 165, 233, 0.28);
 }
 
 .spotlight-card-light {
-  --spot-color: rgba(14, 165, 233, 0.08);
+  --spot-color: rgba(14, 165, 233, 0.14);
 }
 
 .spotlight-card[data-accent="violet"] {
-  --spot-color: rgba(139, 92, 246, 0.12);
+  --spot-color: rgba(139, 92, 246, 0.28);
 }
 
 .spotlight-card[data-accent="emerald"] {
-  --spot-color: rgba(16, 185, 129, 0.12);
+  --spot-color: rgba(16, 185, 129, 0.28);
 }
 
 .spotlight-card[data-accent="royal"] {
-  --spot-color: rgba(59, 130, 246, 0.12);
+  --spot-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Interactive glass surfaces (tabs, nested panels) */
+.interactive-surface {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .spotlight-card::before {
     transition: none;
+  }
+
+  .interactive-surface {
+    transition:
+      box-shadow 0.3s ease,
+      border-color 0.3s ease,
+      background-color 0.3s ease;
   }
 }
 
@@ -436,8 +466,8 @@ h4 {
 .hero-scrim-horizontal {
   background: linear-gradient(
     to right,
-    color-mix(in srgb, var(--surface-page) 70%, transparent),
-    color-mix(in srgb, var(--surface-page) 25%, transparent),
+    color-mix(in srgb, var(--surface-page) 45%, transparent),
+    color-mix(in srgb, var(--surface-page) 12%, transparent),
     transparent
   );
 }
@@ -446,8 +476,8 @@ h4 {
   .hero-scrim-horizontal {
     background: linear-gradient(
       to right,
-      var(--surface-page),
-      color-mix(in srgb, var(--surface-page) 60%, transparent),
+      color-mix(in srgb, var(--surface-page) 55%, transparent),
+      color-mix(in srgb, var(--surface-page) 18%, transparent),
       transparent
     );
   }
@@ -456,9 +486,9 @@ h4 {
 .hero-scrim-vertical {
   background: linear-gradient(
     to bottom,
-    color-mix(in srgb, var(--surface-page) 40%, transparent),
+    color-mix(in srgb, var(--surface-page) 22%, transparent),
     transparent,
-    color-mix(in srgb, var(--surface-page) 20%, transparent)
+    color-mix(in srgb, var(--surface-page) 10%, transparent)
   );
 }
 
@@ -466,9 +496,9 @@ h4 {
   .hero-scrim-vertical {
     background: linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--surface-page) 50%, transparent),
+      color-mix(in srgb, var(--surface-page) 28%, transparent),
       transparent,
-      color-mix(in srgb, var(--surface-page) 30%, transparent)
+      color-mix(in srgb, var(--surface-page) 14%, transparent)
     );
   }
 }
@@ -513,15 +543,14 @@ h4 {
   background:
     radial-gradient(
       ellipse 80% 50% at 75% 25%,
-      rgba(14, 165, 233, 0.04) 0%,
+      rgba(14, 165, 233, 0.1) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 60% 40% at 15% 80%,
-      rgba(139, 92, 246, 0.03) 0%,
+      rgba(139, 92, 246, 0.08) 0%,
       transparent 60%
-    ),
-    var(--surface-page);
+    );
 }
 
 :root[data-theme="light"] .hero-headline {
@@ -578,4 +607,18 @@ h4 {
 
 :root[data-theme="light"] .spotlight-card[data-accent="royal"] {
   --spot-color: rgba(59, 130, 246, 0.12);
+}
+
+/* Cloud platform logos — official brand assets */
+.cloud-platform-logo {
+  opacity: 0.9;
+}
+
+.cloud-platform-logo:hover {
+  opacity: 1;
+}
+
+.cloud-platform-logo-prominent {
+  opacity: 1;
+  filter: drop-shadow(0 2px 12px rgba(14, 165, 233, 0.15));
 }

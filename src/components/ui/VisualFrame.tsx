@@ -22,12 +22,12 @@ export default function VisualFrame({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl",
+        "interactive-surface relative overflow-hidden rounded-2xl",
         dark
           ? cn(
               "border hairline-border-strong",
               glow
-                ? "shadow-md shadow-brand-royal/20 sm:shadow-[0_0_50px_rgba(139,92,246,0.18),0_25px_50px_rgba(0,0,0,0.45)]"
+                ? "shadow-md shadow-brand-royal/20 motion-safe:hover:scale-[1.02] sm:shadow-[0_0_50px_rgba(139,92,246,0.18),0_25px_50px_rgba(0,0,0,0.45)] motion-safe:hover:shadow-[0_0_70px_rgba(139,92,246,0.32),0_30px_60px_rgba(0,0,0,0.5)]"
                 : "shadow-lg shadow-brand-royal/20 sm:shadow-2xl sm:shadow-brand-royal/30",
             )
           : "border border-border-light shadow-xl shadow-brand-royal/10",

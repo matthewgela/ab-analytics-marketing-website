@@ -15,6 +15,8 @@ type SpotlightCardProps = {
   dark?: boolean;
   surface?: "glass" | "card";
   enableGlow?: boolean;
+  /** Skip the inner wrapper so children can participate in a parent/subgrid layout. */
+  layout?: "default" | "grid";
 };
 
 export default function SpotlightCard({
@@ -24,6 +26,7 @@ export default function SpotlightCard({
   dark = true,
   surface = "glass",
   enableGlow = true,
+  layout = "default",
 }: SpotlightCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -49,7 +52,7 @@ export default function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "spotlight-card rounded-2xl transition-all duration-300 hover:-translate-y-1",
+        "spotlight-card rounded-2xl transition-all duration-500 motion-safe:hover:-translate-y-2 motion-safe:hover:scale-[1.015]",
         dark ? "spotlight-card-dark" : "spotlight-card-light",
         surface === "glass"
           ? dark
@@ -63,7 +66,11 @@ export default function SpotlightCard({
         className,
       )}
     >
-      <div className="relative z-[1] h-full w-full">{children}</div>
+      {layout === "grid" ? (
+        children
+      ) : (
+        <div className="relative z-[1] h-full w-full">{children}</div>
+      )}
     </div>
   );
 }

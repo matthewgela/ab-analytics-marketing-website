@@ -1,7 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { cn } from "@/lib/cn";
+import { useTheme } from "next-themes";
+import { useEffect, useRef, useSyncExternalStore } from "react";
+
+function subscribe() {
+  return () => {};
+}
+
+function getClientSnapshot() {
+  return true;
+}
+
+function getServerSnapshot() {
+  return false;
+}
 
 class Particle {
   x: number;
@@ -39,29 +51,40 @@ class Particle {
     }
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D, nodeColor: string) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(14, 165, 233, 0.55)";
+    ctx.fillStyle = nodeColor;
     ctx.fill();
   }
 }
 
 type AntiGravityFieldProps = {
-  contained?: boolean;
   interactive?: boolean;
 };
 
 export default function AntiGravityField({
-  contained = false,
   interactive = false,
 }: AntiGravityFieldProps) {
+  const { resolvedTheme } = useTheme();
+  const mounted = useSyncExternalStore(
+    subscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
+  const isLight = mounted && resolvedTheme === "light";
+  const nodeColor = isLight
+    ? "rgba(2, 132, 199, 0.58)"
+    : "rgba(14, 165, 233, 0.72)";
+  const linePeak = isLight ? 0.38 : 0.46;
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const wrapper = wrapperRef.current;
+    if (!canvas || !wrapper) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -70,21 +93,30 @@ export default function AntiGravityField({
     const mouse = { x: null as number | null, y: null as number | null, radius: 100 };
 
     const init = () => {
-      const parent = canvas.parentElement;
-      canvas.width = parent?.clientWidth ?? window.innerWidth;
-      canvas.height = parent?.clientHeight ?? window.innerHeight;
+      const width = wrapper.clientWidth;
+      const height = wrapper.clientHeight;
+      if (width === 0 || height === 0) return;
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
       particles = [];
-      const density = Math.floor((canvas.width * canvas.height) / 22000);
+      const density = Math.floor((width * height) / 22000);
       for (let i = 0; i < Math.min(density, 70); i++) {
-        const x =
-          canvas.width * 0.35 + Math.random() * canvas.width * 0.65;
-        const y = Math.random() * canvas.height;
+        const x = width * 0.35 + Math.random() * width * 0.65;
+        const y = Math.random() * height;
         particles.push(new Particle(x, y));
       }
     };
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const width = wrapper.clientWidth;
+      const height = wrapper.clientHeight;
+      ctx.clearRect(0, 0, width, height);
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -94,20 +126,23 @@ export default function AntiGravityField({
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(14, 165, 233, ${0.14 * (1 - dist / 130)})`;
-            ctx.lineWidth = 0.5;
+            const alpha = linePeak * (1 - dist / 130);
+            ctx.strokeStyle = isLight
+              ? `rgba(2, 132, 199, ${alpha})`
+              : `rgba(14, 165, 233, ${alpha})`;
+            ctx.lineWidth = 0.85;
             ctx.stroke();
           }
         }
         particles[i].update(canvas, mouse);
-        particles[i].draw(ctx);
+        particles[i].draw(ctx, nodeColor);
       }
       animationFrameId = requestAnimationFrame(animate);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!interactive || !wrapperRef.current) return;
-      const rect = wrapperRef.current.getBoundingClientRect();
+      if (!interactive) return;
+      const rect = wrapper.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
     };
@@ -119,7 +154,11 @@ export default function AntiGravityField({
 
     init();
     animate();
-    window.addEventListener("resize", init);
+
+    const resizeObserver = new ResizeObserver(() => {
+      init();
+    });
+    resizeObserver.observe(wrapper);
 
     if (interactive) {
       window.addEventListener("mousemove", handleMouseMove);
@@ -128,22 +167,22 @@ export default function AntiGravityField({
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize", init);
+      resizeObserver.disconnect();
       if (interactive) {
         window.removeEventListener("mousemove", handleMouseMove);
         window.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
-  }, [interactive]);
+  }, [interactive, isLight, linePeak, nodeColor]);
 
   return (
-    <div ref={wrapperRef} className="absolute inset-0">
+    <div
+      ref={wrapperRef}
+      className="pointer-events-none absolute inset-0 size-full overflow-hidden"
+    >
       <canvas
         ref={canvasRef}
-        className={cn(
-          "pointer-events-none h-full w-full bg-transparent",
-          !contained && "fixed inset-0 -z-10",
-        )}
+        className="block h-full w-full bg-transparent"
         aria-hidden="true"
       />
     </div>

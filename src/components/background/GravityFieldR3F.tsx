@@ -1,9 +1,21 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useEffect, useMemo, useRef } from "react";
+import { useTheme } from "next-themes";
+import { useEffect, useMemo, useRef, useSyncExternalStore } from "react";
 import * as THREE from "three";
-import { cn } from "@/lib/cn";
+
+function subscribe() {
+  return () => {};
+}
+
+function getClientSnapshot() {
+  return true;
+}
+
+function getServerSnapshot() {
+  return false;
+}
 
 const PARTICLE_COUNT = 70;
 const CONNECTION_DISTANCE = 1.5;
@@ -32,6 +44,17 @@ function createParticleData() {
 }
 
 function ParticleField({ interactive }: { interactive: boolean }) {
+  const { resolvedTheme } = useTheme();
+  const mounted = useSyncExternalStore(
+    subscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
+  const isLight = mounted && resolvedTheme === "light";
+  const nodeColor = isLight ? "#0284c7" : "#0EA5E9";
+  const lineOpacity = isLight ? 0.32 : 0.42;
+  const nodeOpacity = isLight ? 0.65 : 0.85;
+
   const pointsRef = useRef<THREE.Points>(null);
   const linesRef = useRef<THREE.LineSegments>(null);
   const mouse = useRef(new THREE.Vector2(0, 0));
@@ -115,43 +138,49 @@ function ParticleField({ interactive }: { interactive: boolean }) {
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.05}
-          color="#0EA5E9"
+          size={0.055}
+          color={nodeColor}
           transparent
-          opacity={0.65}
+          opacity={nodeOpacity}
           sizeAttenuation
         />
       </points>
       <lineSegments ref={linesRef}>
         <bufferGeometry />
-        <lineBasicMaterial color="#0EA5E9" transparent opacity={0.12} />
+        <lineBasicMaterial
+          color={nodeColor}
+          transparent
+          opacity={lineOpacity}
+        />
       </lineSegments>
     </>
   );
 }
 
 type GravityFieldR3FProps = {
-  contained?: boolean;
   interactive?: boolean;
 };
 
 export default function GravityFieldR3F({
-  contained = false,
   interactive = false,
 }: GravityFieldR3FProps) {
   return (
     <div
-      className={cn(
-        "pointer-events-none bg-transparent",
-        contained ? "absolute inset-0" : "fixed inset-0 -z-10",
-      )}
+      className="pointer-events-none absolute inset-0 size-full overflow-hidden bg-transparent"
       aria-hidden="true"
     >
       <Canvas
         camera={{ position: [0, 0, 5], fov: 60 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true }}
-        style={{ pointerEvents: "none", background: "transparent" }}
+        dpr={[1, 1.25]}
+        resize={{ scroll: false, debounce: { scroll: 0, resize: 0 } }}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        style={{
+          pointerEvents: "none",
+          background: "transparent",
+          width: "100%",
+          height: "100%",
+          display: "block",
+        }}
       >
         <ParticleField interactive={interactive} />
       </Canvas>

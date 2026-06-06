@@ -64,7 +64,7 @@ export default function RootLayout({
         <ThemeProvider>
           <PageBackdrop />
           <Navbar />
-          <main className="relative z-0 flex-1">{children}</main>
+          <main className="relative z-10 flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

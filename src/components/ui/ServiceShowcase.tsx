@@ -4,10 +4,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, Layers, Target } from "lucide-react";
 import { useRef, useState } from "react";
 import { services } from "@/content/services";
+import CloudPlatformBanner from "@/components/ui/CloudPlatformBanner";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import VisualFrame from "@/components/ui/VisualFrame";
 import {
   accentBorderHoverClass,
+  accentHoverGlowClass,
   accentIconClass,
   accentRingClass,
   accentSolidClass,
@@ -58,12 +60,13 @@ export default function ServiceShowcase() {
               id={`service-tab-${service.id}`}
               onClick={() => selectService(service.id)}
               className={cn(
-                "group relative flex flex-col items-center rounded-2xl border text-center transition-all duration-300",
-                "glass-surface-dark px-4 py-5 hover:-translate-y-0.5 sm:py-6",
+                "interactive-surface group relative flex flex-col items-center rounded-2xl border text-center",
+                "glass-surface-dark px-4 py-5 motion-safe:hover:-translate-y-2 motion-safe:hover:scale-[1.03] sm:py-6",
                 accentBorderHoverClass[serviceAccent],
+                accentHoverGlowClass[serviceAccent],
                 isActive
                   ? cn("ring-2", accentRingClass[serviceAccent], "bg-bg-deep/30")
-                  : "hairline-border",
+                  : "hairline-border hover:bg-bg-deep/25",
               )}
             >
               <span
@@ -77,11 +80,14 @@ export default function ServiceShowcase() {
 
               <div
                 className={cn(
-                  "mb-3 flex h-11 w-11 items-center justify-center rounded-xl hairline-bg-muted",
+                  "mb-3 flex h-11 w-11 items-center justify-center rounded-xl hairline-bg-muted transition-transform duration-500 motion-safe:group-hover:scale-110",
                   accentIconClass[serviceAccent],
                 )}
               >
-                <Icon className="h-5 w-5" strokeWidth={1.75} />
+                <Icon
+                  className="h-5 w-5 transition-transform duration-500 motion-safe:group-hover:scale-110"
+                  strokeWidth={1.75}
+                />
               </div>
 
               <p className="eyebrow text-[10px] text-brand-cyan">
@@ -93,8 +99,10 @@ export default function ServiceShowcase() {
 
               <span
                 className={cn(
-                  "mt-4 h-0.5 w-8 rounded-full transition-all duration-300",
-                  isActive ? accentSolidClass[serviceAccent] : "bg-transparent",
+                  "mt-4 h-0.5 rounded-full transition-all duration-500",
+                  isActive
+                    ? cn("w-10", accentSolidClass[serviceAccent])
+                    : "w-8 bg-transparent motion-safe:group-hover:w-10 motion-safe:group-hover:bg-white/20",
                 )}
                 aria-hidden
               />
@@ -118,7 +126,6 @@ export default function ServiceShowcase() {
             <SpotlightCard
               accent={accent}
               dark
-              enableGlow={false}
               className="overflow-hidden p-0"
             >
               <div className="grid lg:grid-cols-2">
@@ -154,11 +161,23 @@ export default function ServiceShowcase() {
                     {active.summary}
                   </p>
 
+                  {active.id === "platform" && (
+                    <CloudPlatformBanner
+                      variant="inline"
+                      className="mt-6"
+                    />
+                  )}
+
                   <div className="mt-6 space-y-4 sm:mt-8">
                     {detailBlocks.map(({ label, key, icon: BlockIcon }) => (
                       <div
                         key={label}
-                        className="rounded-xl border hairline-border bg-bg-deep/25 p-4 sm:p-5"
+                        className={cn(
+                          "interactive-surface rounded-xl border hairline-border bg-bg-deep/25 p-4 sm:p-5",
+                          "motion-safe:hover:-translate-y-1.5 hover:bg-bg-deep/40",
+                          accentBorderHoverClass[accent],
+                          accentHoverGlowClass[accent],
+                        )}
                       >
                         <div className="mb-3 flex items-center gap-2">
                           <BlockIcon

@@ -79,6 +79,7 @@ export const services: Service[] = [
     summary:
       "From sovereign cloud design to full-stack platform builds, we deliver the software and infrastructure layer that AI systems run on — multi-region deployments, custom digitization platforms, and enterprise integrations for public and private sector institutions.",
     capabilities: [
+      "Multi-cloud architecture across AWS and Google Cloud Platform",
       "Enterprise cloud architecture and multi-region deployments",
       "Custom software and large-scale digitization platforms",
       "API design, system integration, and data pipeline engineering",

@@ -19,7 +19,7 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden">
-      <div className="grid-bg pointer-events-none absolute inset-0 opacity-[0.05]" />
+      <div className="page-grid-overlay grid-bg pointer-events-none absolute inset-0" />
       <div className="pointer-events-none absolute -top-32 left-1/2 hidden h-96 w-[36rem] -translate-x-1/2 rounded-full bg-brand-royal/20 blur-[120px] sm:block" />
 
       <motion.div

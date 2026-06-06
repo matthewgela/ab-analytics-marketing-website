@@ -61,7 +61,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 pt-20 pb-10 sm:min-h-[85vh] sm:gap-10 sm:px-6 sm:pt-28 sm:pb-16 md:flex-row md:gap-12 md:px-8 md:pt-40 md:pb-20">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 pt-20 pb-10 sm:min-h-[85vh] sm:gap-10 sm:px-6 sm:pt-28 sm:pb-16 md:flex-row md:gap-12 md:px-8 md:pt-40 md:pb-20">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
