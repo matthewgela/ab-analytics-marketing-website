@@ -10,6 +10,7 @@ import {
   type SimpleContactFormData,
 } from "@/lib/schemas";
 import { cn } from "@/lib/cn";
+import { siteConfig } from "@/lib/seo";
 
 const inputClass =
   "w-full rounded-xl border hairline-border bg-bg-deep/60 px-4 py-3 text-base text-text-on-dark placeholder:text-text-muted-on-dark/50 outline-none transition-colors focus:border-brand-cyan/50 focus:ring-1 focus:ring-brand-cyan/20";
@@ -34,15 +35,30 @@ export default function SimpleContactForm({
   });
 
   const onSubmit = async (data: SimpleContactFormData) => {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type: formType, ...data }),
-    });
-    if (res.ok) {
-      setSubmitted(true);
-      reset();
+    const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+
+    if (endpoint) {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: formType, ...data }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        reset();
+      }
+      return;
     }
+
+    const subject = encodeURIComponent(
+      formType === "intake" ? "Partnership inquiry" : "Contact inquiry",
+    );
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`,
+    );
+    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+    reset();
   };
 
   const fieldClass = dark
