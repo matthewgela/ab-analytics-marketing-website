@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://abanalytics.com";
+/** Production domain — add public/CNAME with this value when ready to go live. */
+export const productionSiteUrl = "https://abanalytics.co.uk";
+
+const defaultSiteUrl =
+  "https://matthewgela.github.io/ab-analytics-marketing-website";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl;
 
 export const siteConfig = {
   name: "AB Analytics",
@@ -10,7 +15,7 @@ export const siteConfig = {
   description:
     "Practitioner-led AI engineering. Google-vetted standards. Proven deployment across financial, defense, and sovereign environments.",
   url: siteUrl,
-  email: "contact@abanalytics.com",
+  email: "contact@abanalytics.co.uk",
   address: {
     city: "Addis Ababa",
     country: "Ethiopia",

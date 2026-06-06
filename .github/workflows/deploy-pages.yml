@@ -30,7 +30,7 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://abanalytics.com
+          NEXT_PUBLIC_SITE_URL: https://matthewgela.github.io/ab-analytics-marketing-website
 
       - uses: actions/upload-pages-artifact@v3
         with:
