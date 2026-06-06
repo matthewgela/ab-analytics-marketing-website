@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import type { Service } from "@/content/services";
+import { assetPath } from "@/lib/assetPath";
 import { accentIconClass, type Accent } from "@/lib/accent";
 import { fadeUp } from "@/lib/motion";
 import { cn } from "@/lib/cn";
@@ -29,7 +30,7 @@ export default function ServiceCard({
       >
         <div className="relative aspect-[2/1] w-full overflow-hidden sm:aspect-[16/10]">
           <Image
-            src={service.image}
+            src={assetPath(service.image)}
             alt={service.title}
             fill
             sizes="(max-width: 768px) 100vw, 25vw"

@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { assetPath } from "@/lib/assetPath";
 import { cn } from "@/lib/cn";
 
 type VisualFrameProps = {
@@ -44,7 +45,7 @@ export default function VisualFrame({
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={src}
+          src={assetPath(src)}
           alt={alt}
           className="relative h-full w-full object-cover"
         />

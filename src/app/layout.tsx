@@ -4,6 +4,7 @@ import PageBackdrop from "@/components/background/PageBackdrop";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
+import { assetPath } from "@/lib/assetPath";
 import { createMetadata, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
@@ -58,9 +59,6 @@ export default function RootLayout({
             __html: JSON.stringify(organizationJsonLd),
           }}
         />
-        <link rel="icon" href="/brand/monogram.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/brand/monogram.svg" />
-        <link rel="manifest" href="/manifest.webmanifest" />
       </head>
       <body className="relative z-0 min-h-full flex flex-col bg-surface-page">
         <ThemeProvider>

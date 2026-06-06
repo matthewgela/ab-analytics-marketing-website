@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "@/lib/assetPath";
 
 const footerLinks = [
   { href: "/services", label: "Services" },
@@ -15,7 +16,7 @@ export default function Footer() {
         <div className="grid gap-10 sm:gap-12 md:grid-cols-3">
           <div>
             <Image
-              src="/brand/logo-stacked.svg"
+              src={assetPath("/brand/logo-stacked.svg")}
               alt="AB Analytics"
               width={120}
               height={80}
