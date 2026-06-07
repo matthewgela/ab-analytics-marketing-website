@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <div className="mx-auto max-w-7xl space-y-8 px-4 pb-8 pt-6 sm:space-y-8 sm:pb-12 sm:pt-8 md:space-y-10 md:px-8 md:pb-20 md:pt-10">
+      <div className="mx-auto max-w-7xl space-y-6 px-4 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-0 sm:space-y-8 sm:px-6 sm:pb-12 sm:pt-6 md:space-y-10 md:px-8 md:pb-20 md:pt-8">
         <CloudPlatformBanner variant="featured" />
         <StatsGrid />
         <ServicesPreview />

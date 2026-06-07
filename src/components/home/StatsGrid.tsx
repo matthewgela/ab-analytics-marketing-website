@@ -19,6 +19,7 @@ export default function StatsGrid() {
           eyebrow="Track Record"
           title="Engineering at National Scale"
           description="Quantified outcomes from production deployments across regulated industries."
+          align="center"
           variant="dark"
         />
         <motion.div

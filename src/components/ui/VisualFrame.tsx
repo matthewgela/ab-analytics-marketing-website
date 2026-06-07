@@ -34,20 +34,18 @@ export default function VisualFrame({
         className,
       )}
     >
-      <div
-        className={cn(
-          "absolute inset-0 rounded-2xl",
-          dark
-            ? "bg-gradient-to-br from-brand-cyan/15 via-brand-violet/5 to-brand-violet/15"
-            : "bg-gradient-to-br from-brand-cyan/5 via-transparent to-brand-royal/5",
-        )}
-      />
+      {dark && (
+        <div
+          className="absolute inset-0 z-0 rounded-2xl bg-gradient-to-br from-brand-cyan/15 via-brand-violet/5 to-brand-violet/15"
+          aria-hidden
+        />
+      )}
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={assetPath(src)}
           alt={alt}
-          className="relative h-full w-full object-cover"
+          className="relative z-[1] h-full w-full object-cover"
         />
       ) : (
         children

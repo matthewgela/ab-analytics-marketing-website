@@ -11,7 +11,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl;
 export const siteConfig = {
   name: "AB Analytics",
   tagline:
-    "We Industrialize Machine Learning & Generative AI Systems for National Scale",
+    "Engineer AI that runs where stakes are highest",
   description:
     "Practitioner-led AI engineering. Google-vetted standards. Proven deployment across financial, defense, and sovereign environments.",
   url: siteUrl,

@@ -79,7 +79,7 @@ export default function StatTile({
       ref={ref}
       variants={fadeUp}
       className={cn(
-        "interactive-surface grid grid-cols-[5.5rem_1fr] items-start gap-x-4 rounded-2xl border-[0.5px] p-4 sm:block sm:p-8 motion-safe:sm:hover:-translate-y-2 motion-safe:sm:hover:scale-[1.02]",
+        "interactive-surface flex flex-col items-center rounded-2xl border-[0.5px] p-5 text-center sm:block sm:p-8 sm:text-left motion-safe:sm:hover:-translate-y-2 motion-safe:sm:hover:scale-[1.02]",
         isDark
           ? "glass-surface-dark hairline-border hover:border-[color:var(--hairline-hover)]"
           : variant === "surface"
@@ -91,7 +91,7 @@ export default function StatTile({
     >
       <p
         className={cn(
-          "text-right font-display text-2xl font-bold tracking-tight sm:text-left sm:text-4xl md:text-5xl",
+          "font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl",
           accentGradientClass[accent],
         )}
       >
@@ -99,7 +99,7 @@ export default function StatTile({
       </p>
       <p
         className={cn(
-          "pt-0.5 text-sm leading-snug sm:mt-3 sm:pt-0 sm:leading-relaxed",
+          "mt-2 max-w-[14rem] text-sm leading-snug sm:mt-3 sm:max-w-none sm:leading-relaxed",
           isDark ? "text-text-muted-on-dark" : "text-text-muted",
         )}
       >

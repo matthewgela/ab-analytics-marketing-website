@@ -35,14 +35,14 @@ export default function PipelineSteps() {
 
   return (
     <div ref={containerRef} className="relative">
-      <div className="absolute top-9 right-8 left-8 hidden h-0.5 bg-[var(--hairline)] md:block">
+      <div className="absolute top-9 right-8 left-8 hidden h-0.5 bg-[var(--hairline)] lg:block">
         <motion.div
           className="h-full rounded-full bg-gradient-to-r from-brand-cyan via-brand-violet to-brand-emerald"
           style={{ width: lineWidth }}
         />
       </div>
 
-      <div className="grid gap-8 md:grid-cols-4">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {pipelineSteps.map((step, index) => {
           const Icon = iconMap[step.icon];
           const accent = stepAccents[index];

@@ -24,7 +24,7 @@ export default function ProductGrid() {
     <div>
       <nav
         aria-label="Product sections"
-        className="sticky top-14 z-20 mb-12 flex flex-wrap gap-2 border-b hairline-border pb-4 sm:top-16 sm:mb-16 sm:gap-3 sm:pb-5"
+        className="sticky top-14 z-20 -mx-4 mb-12 flex gap-2 overflow-x-auto border-b hairline-border px-4 pb-4 scroll-smooth [scrollbar-width:none] sm:top-16 sm:mx-0 sm:mb-16 sm:flex-wrap sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-5 [&::-webkit-scrollbar]:hidden"
       >
         {products.map((product) => (
           <a
@@ -54,7 +54,7 @@ export default function ProductGrid() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className="scroll-mt-28"
+              className="scroll-mt-32 sm:scroll-mt-28"
             >
               <div
                 className={cn(

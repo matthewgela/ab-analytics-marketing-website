@@ -61,10 +61,12 @@ class Particle {
 
 type AntiGravityFieldProps = {
   interactive?: boolean;
+  spread?: "full" | "right";
 };
 
 export default function AntiGravityField({
   interactive = false,
+  spread = "right",
 }: AntiGravityFieldProps) {
   const { resolvedTheme } = useTheme();
   const mounted = useSyncExternalStore(
@@ -74,9 +76,9 @@ export default function AntiGravityField({
   );
   const isLight = mounted && resolvedTheme === "light";
   const nodeColor = isLight
-    ? "rgba(2, 132, 199, 0.58)"
+    ? "rgba(3, 105, 161, 0.55)"
     : "rgba(14, 165, 233, 0.72)";
-  const linePeak = isLight ? 0.38 : 0.46;
+  const linePeak = isLight ? 0.3 : 0.46;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -105,9 +107,14 @@ export default function AntiGravityField({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       particles = [];
-      const density = Math.floor((width * height) / 22000);
-      for (let i = 0; i < Math.min(density, 70); i++) {
-        const x = width * 0.35 + Math.random() * width * 0.65;
+      const densityDivisor = spread === "full" ? 18000 : 22000;
+      const maxParticles = spread === "full" ? 90 : 70;
+      const density = Math.floor((width * height) / densityDivisor);
+      for (let i = 0; i < Math.min(density, maxParticles); i++) {
+        const x =
+          spread === "full"
+            ? Math.random() * width
+            : width * 0.35 + Math.random() * width * 0.65;
         const y = Math.random() * height;
         particles.push(new Particle(x, y));
       }
@@ -128,7 +135,7 @@ export default function AntiGravityField({
             ctx.lineTo(particles[j].x, particles[j].y);
             const alpha = linePeak * (1 - dist / 130);
             ctx.strokeStyle = isLight
-              ? `rgba(2, 132, 199, ${alpha})`
+              ? `rgba(3, 105, 161, ${alpha})`
               : `rgba(14, 165, 233, ${alpha})`;
             ctx.lineWidth = 0.85;
             ctx.stroke();
@@ -173,7 +180,7 @@ export default function AntiGravityField({
         window.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
-  }, [interactive, isLight, linePeak, nodeColor]);
+  }, [interactive, isLight, linePeak, nodeColor, spread]);
 
   return (
     <div

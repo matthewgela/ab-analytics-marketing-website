@@ -43,7 +43,7 @@ export default function ServiceShowcase() {
       <div
         role="tablist"
         aria-label="Service capabilities"
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+        className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 scroll-smooth snap-x snap-mandatory [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
       >
         {services.map((service, index) => {
           const isActive = service.id === activeId;
@@ -215,7 +215,7 @@ export default function ServiceShowcase() {
                   </div>
                 </div>
 
-                <div className="border-t hairline-border p-6 sm:p-8 lg:border-t-0 lg:border-l">
+                <div className="border-t hairline-border p-6 sm:p-8 md:border-t-0 md:border-l">
                   <VisualFrame
                     src={active.image}
                     alt={active.title}

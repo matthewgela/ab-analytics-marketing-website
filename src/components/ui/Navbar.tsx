@@ -63,7 +63,7 @@ export default function Navbar() {
     <>
     <header
       className={cn(
-        "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
+        "fixed top-0 right-0 left-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-all duration-300",
         isLight && "nav-shell",
         isLight
           ? "border-b hairline-border bg-[var(--nav-surface)] backdrop-blur-md"
@@ -84,7 +84,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="hidden items-center gap-8 lg:flex">
+        <div className="hidden items-center gap-6 md:flex lg:gap-8">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
@@ -107,7 +107,7 @@ export default function Navbar() {
           })}
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 md:flex">
           <button
             type="button"
             onClick={toggleTheme}
@@ -124,7 +124,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="flex items-center gap-1 lg:hidden">
+        <div className="flex items-center gap-1 md:hidden">
           <button
             type="button"
             onClick={toggleTheme}
@@ -150,18 +150,18 @@ export default function Navbar() {
       <>
         <button
           type="button"
-          className="fixed inset-0 top-14 z-[60] bg-bg-deep/50 backdrop-blur-sm sm:top-16 lg:hidden"
+          className="fixed inset-0 top-14 z-[60] bg-bg-deep/50 backdrop-blur-sm sm:top-16 md:hidden"
           aria-label="Close menu"
           onClick={() => setOpen(false)}
         />
         <div
           className={cn(
-            "fixed inset-x-0 top-14 bottom-0 z-[70] flex flex-col overflow-y-auto sm:top-16 lg:hidden",
+            "fixed inset-x-0 top-14 bottom-0 z-[70] flex flex-col overflow-y-auto sm:top-16 md:hidden",
             isLight && "nav-shell",
             isLight ? "bg-[var(--nav-surface)]" : "bg-bg-deep",
           )}
         >
-          <nav className="flex flex-1 flex-col px-6 py-8">
+          <nav className="flex flex-1 flex-col px-6 py-8 pb-[calc(2rem+env(safe-area-inset-bottom,0px))]">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

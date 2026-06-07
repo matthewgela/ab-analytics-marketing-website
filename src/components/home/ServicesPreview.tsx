@@ -17,6 +17,7 @@ export default function ServicesPreview() {
         eyebrow="Capabilities"
         title="Who We Are"
         description="Elite artificial intelligence engineering specializing in the industrialization of machine learning and generative AI."
+        align="center"
         variant="dark"
       />
       <motion.div
@@ -24,7 +25,7 @@ export default function ServicesPreview() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="grid gap-6 md:grid-cols-3"
+        className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
       >
         {preview.map((service) => (
           <ServiceCard key={service.id} service={service} dark />

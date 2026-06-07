@@ -18,7 +18,7 @@ export default function ContactPage() {
       <section className="px-4 pb-16 sm:pb-24 md:px-8 md:pb-28">
         <div className="section-panel mx-auto max-w-5xl p-4 sm:p-6 md:p-8">
           <div className="grid gap-8 lg:grid-cols-5 lg:gap-10">
-            <div className="space-y-4 sm:space-y-5 lg:col-span-2">
+            <div className="order-2 space-y-4 sm:space-y-5 lg:order-1 lg:col-span-2">
               <GlassCard dark>
                 <div className="mb-3 flex items-center gap-3">
                   <MapPin className="h-5 w-5 shrink-0 text-brand-cyan" />
@@ -44,7 +44,7 @@ export default function ContactPage() {
               </GlassCard>
             </div>
 
-            <div className="lg:col-span-3">
+            <div className="order-1 lg:order-2 lg:col-span-3">
               <SimpleContactForm formType="contact" dark />
             </div>
           </div>

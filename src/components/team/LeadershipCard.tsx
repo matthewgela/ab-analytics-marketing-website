@@ -14,9 +14,9 @@ import { fadeUp } from "@/lib/motion";
  * Row 1 auto-sizes to content (name → tags → bio); rows 2–3 stay fixed so
  * cert dividers align across both columns at lg+.
  */
-export const LEADER_BOARD_ROW_TRACKS = "lg:grid-rows-[auto_7rem_3.5rem]";
+export const LEADER_BOARD_ROW_TRACKS = "lg:grid-rows-[auto_minmax(7rem,auto)_3.5rem]";
 
-const LEADER_CARD_ROWS = "sm:grid-rows-[auto_7rem_3.5rem]";
+const LEADER_CARD_ROWS = "md:grid-rows-[auto_minmax(7rem,auto)_3.5rem]";
 
 const leaderAccents: Record<string, Accent> = {
   eliyas: "cyan",
@@ -41,8 +41,8 @@ export default function LeadershipCard({
         layout="grid"
         className={cn(
           "group h-full",
-          "grid grid-cols-1 items-stretch",
-          "sm:grid-cols-[11rem_1fr]",
+          "grid min-w-0 grid-cols-1 items-stretch",
+          "md:grid-cols-[11rem_1fr]",
           LEADER_CARD_ROWS,
           "lg:row-span-3 lg:grid-rows-subgrid",
         )}
@@ -70,7 +70,7 @@ export default function LeadershipCard({
         <div
           className={cn(
             "relative z-[1] flex flex-col border-t hairline-border px-6 py-5",
-            "sm:col-start-2 sm:row-start-1 sm:border-t-0 sm:py-5 sm:pr-6 sm:pl-6",
+            "md:col-start-2 md:row-start-1 md:border-t-0 md:py-5 md:pr-6 md:pl-6",
           )}
         >
           <h3 className="text-xl font-bold leading-tight tracking-tight text-text-on-dark md:text-2xl">
@@ -102,7 +102,7 @@ export default function LeadershipCard({
         <div
           className={cn(
             "relative z-[1] border-t hairline-border px-6 py-5",
-            "sm:col-start-2 sm:row-start-2 sm:px-6 sm:py-5",
+            "md:col-start-2 md:row-start-2 md:px-6 md:py-5",
           )}
         >
           {leader.certifications.length > 0 ? (
@@ -116,7 +116,7 @@ export default function LeadershipCard({
         <div
           className={cn(
             "relative z-[1] px-6 py-4",
-            "sm:col-start-2 sm:row-start-3 sm:flex sm:items-center sm:px-6 sm:py-0",
+            "md:col-start-2 md:row-start-3 md:flex md:items-center md:px-6 md:py-0",
           )}
         >
           <a

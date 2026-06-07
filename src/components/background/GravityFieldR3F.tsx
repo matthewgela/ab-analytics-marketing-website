@@ -51,9 +51,9 @@ function ParticleField({ interactive }: { interactive: boolean }) {
     getServerSnapshot,
   );
   const isLight = mounted && resolvedTheme === "light";
-  const nodeColor = isLight ? "#0284c7" : "#0EA5E9";
-  const lineOpacity = isLight ? 0.32 : 0.42;
-  const nodeOpacity = isLight ? 0.65 : 0.85;
+  const nodeColor = isLight ? "#0369a1" : "#0EA5E9";
+  const lineOpacity = isLight ? 0.3 : 0.42;
+  const nodeOpacity = isLight ? 0.55 : 0.85;
 
   const pointsRef = useRef<THREE.Points>(null);
   const linesRef = useRef<THREE.LineSegments>(null);

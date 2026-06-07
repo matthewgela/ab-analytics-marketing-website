@@ -25,9 +25,10 @@ export default function ProductsPreview() {
           eyebrow="Products"
           title="Software Platforms"
           description="Production-grade platforms engineered for sovereign, high-stakes environments."
+          align="center"
           variant="dark"
         />
-        <div className="flex flex-col items-center gap-5 sm:flex-row sm:flex-wrap sm:justify-center">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product, i) => (
             <motion.div
               key={product.id}
@@ -36,7 +37,7 @@ export default function ProductsPreview() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="w-full max-w-sm sm:w-80"
+              className="w-full"
             >
               <SpotlightCard
                 accent="violet"

@@ -29,7 +29,7 @@ export default function TeamPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             className={cn(
-              "grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8",
+              "grid min-w-0 items-stretch gap-6 lg:grid-cols-2 lg:gap-8",
               LEADER_BOARD_ROW_TRACKS,
             )}
           >

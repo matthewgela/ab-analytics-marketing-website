@@ -95,7 +95,7 @@ export default function CloudPlatformBanner({
       <div className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-brand-violet/10 blur-[80px]" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-        <div className="max-w-md text-center lg:text-left">
+        <div className="max-w-md text-center">
           <p className="eyebrow text-brand-cyan">{label}</p>
           <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-text-on-dark sm:text-3xl md:text-4xl">
             {cloudPlatformHeadline}
