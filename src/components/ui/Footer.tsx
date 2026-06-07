@@ -17,10 +17,9 @@ export default function Footer() {
             <div className="mb-6">
               <BrandLogo size="footer" asLink={false} />
             </div>
-            <p className="mt-4 text-sm text-text-muted-on-dark">
-              United Kingdom
-              <br />
-              Building for organisations in Ethiopia
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-text-muted-on-dark">
+              Machine learning, agentic AI, and software applications — built,
+              hosted, and managed for Ethiopian organisations.
             </p>
           </div>
 

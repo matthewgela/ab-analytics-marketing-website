@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { assetPath } from "@/lib/assetPath";
 
-/** Production domain — add public/CNAME with this value when ready to go live. */
-export const productionSiteUrl = "https://abanalytics.co.uk";
+/** Production domain — matches public/CNAME for GitHub Pages. */
+export const productionSiteUrl = "https://www.abanalytics.co.uk";
 
-const defaultSiteUrl =
-  "https://matthewgela.github.io/ab-analytics-marketing-website";
+const defaultSiteUrl = productionSiteUrl;
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl;
 

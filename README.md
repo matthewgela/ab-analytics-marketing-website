@@ -51,6 +51,6 @@ Notification delivery is configured in the Formspree dashboard (not in this repo
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Canonical URLs and sitemap (optional locally) |
-| `NEXT_PUBLIC_BASE_PATH` | Set to `/ab-analytics-marketing-website` for GitHub Pages |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URLs and sitemap (`https://www.abanalytics.co.uk` in production) |
+| `NEXT_PUBLIC_BASE_PATH` | Leave unset for custom domain; use `/repo-name` only for `*.github.io` project URLs |
 | `NEXT_PUBLIC_CONTACT_ENDPOINT` | Formspree form URL (optional; defaults to the project form) |
