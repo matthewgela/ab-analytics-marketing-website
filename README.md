@@ -45,7 +45,7 @@ Replace placeholder SVGs in `public/brand/` with your official logo files. See `
 
 Submissions are sent to [Formspree](https://formspree.io) via AJAX from the static site (home intake form and `/contact` page). The default endpoint is `https://formspree.io/f/xbdeganl`.
 
-Notification delivery is configured in the Formspree dashboard (not in this repo). Set the form’s email action to `matthew.gela@abanalytics.co.uk` — add and verify that address under **Account → Linked emails**, then update the form **Workflow → Email → Settings**.
+Notification delivery is configured in the Formspree dashboard (not in this repo). The public contact email shown on the site is `eliyas@abanalytics.co.uk`; Formspree can notify multiple verified inboxes via **Workflow → Email** actions.
 
 ## Environment
 

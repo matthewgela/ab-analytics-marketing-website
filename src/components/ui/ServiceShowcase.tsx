@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2, Layers, Target } from "lucide-react";
+import { CheckCircle2, ChevronRight, Layers, Target } from "lucide-react";
 import { useRef, useState } from "react";
 import { services } from "@/content/services";
 import CloudPlatformBanner from "@/components/ui/CloudPlatformBanner";
@@ -11,8 +11,11 @@ import {
   accentBorderHoverClass,
   accentHoverGlowClass,
   accentIconClass,
+  accentMobileActiveBorderClass,
   accentRingClass,
   accentSolidClass,
+  accentTabHoverGlowClass,
+  accentUnderlineHoverClass,
   type Accent,
 } from "@/lib/accent";
 import { cn } from "@/lib/cn";
@@ -43,7 +46,7 @@ export default function ServiceShowcase() {
       <div
         role="tablist"
         aria-label="Service capabilities"
-        className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 scroll-smooth snap-x snap-mandatory [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
+        className="flex flex-col gap-2.5 sm:grid sm:grid-cols-2 sm:items-stretch sm:gap-4 lg:grid-cols-4"
       >
         {services.map((service, index) => {
           const isActive = service.id === activeId;
@@ -60,18 +63,24 @@ export default function ServiceShowcase() {
               id={`service-tab-${service.id}`}
               onClick={() => selectService(service.id)}
               className={cn(
-                "interactive-surface group relative flex flex-col items-center rounded-2xl border text-center",
-                "glass-surface-dark px-4 py-5 motion-safe:hover:-translate-y-2 motion-safe:hover:scale-[1.03] sm:py-6",
+                "interactive-surface group relative flex w-full items-center gap-3 rounded-2xl border text-left",
+                "glass-surface-dark px-3.5 py-3.5 sm:h-full sm:flex-col sm:items-center sm:px-4 sm:py-6 sm:text-center",
+                "motion-safe:sm:hover:-translate-y-3 motion-safe:sm:hover:scale-[1.05]",
                 accentBorderHoverClass[serviceAccent],
-                accentHoverGlowClass[serviceAccent],
+                accentTabHoverGlowClass[serviceAccent],
                 isActive
-                  ? cn("ring-2", accentRingClass[serviceAccent], "bg-bg-deep/30")
-                  : "hairline-border hover:bg-bg-deep/25",
+                  ? cn(
+                      "bg-bg-deep/30",
+                      accentMobileActiveBorderClass[serviceAccent],
+                      "sm:ring-2",
+                      accentRingClass[serviceAccent],
+                    )
+                  : "hairline-border sm:hover:bg-bg-deep/35",
               )}
             >
               <span
                 className={cn(
-                  "mb-3 font-mono text-[10px] font-semibold tracking-[0.2em]",
+                  "hidden font-mono text-[10px] font-semibold tracking-[0.2em] sm:mb-3 sm:block",
                   accentIconClass[serviceAccent],
                 )}
               >
@@ -80,7 +89,7 @@ export default function ServiceShowcase() {
 
               <div
                 className={cn(
-                  "mb-3 flex h-11 w-11 items-center justify-center rounded-xl hairline-bg-muted transition-transform duration-500 motion-safe:group-hover:scale-110",
+                  "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl hairline-bg-muted transition-all duration-500 motion-safe:group-hover:scale-125 motion-safe:sm:group-hover:shadow-[0_0_24px_currentColor] sm:mb-3",
                   accentIconClass[serviceAccent],
                 )}
               >
@@ -90,19 +99,43 @@ export default function ServiceShowcase() {
                 />
               </div>
 
-              <p className="eyebrow text-[10px] text-brand-cyan">
-                {service.tagline}
-              </p>
-              <h3 className="mt-2 text-sm font-bold leading-snug tracking-tight text-text-on-dark">
-                {service.shortTitle}
-              </h3>
+              <div className="min-w-0 flex-1 sm:w-full sm:flex-none">
+                <p className="eyebrow text-[10px] text-brand-cyan">
+                  {service.tagline}
+                </p>
+                <h3 className="mt-1 text-sm font-bold leading-snug tracking-tight text-text-on-dark sm:mt-2">
+                  {service.shortTitle}
+                </h3>
+              </div>
 
               <span
                 className={cn(
-                  "mt-4 h-0.5 rounded-full transition-all duration-500",
+                  "shrink-0 font-mono text-[10px] font-semibold tracking-[0.2em] sm:hidden",
+                  accentIconClass[serviceAccent],
+                )}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <ChevronRight
+                className={cn(
+                  "h-4 w-4 shrink-0 opacity-50 sm:hidden",
+                  isActive ? accentIconClass[serviceAccent] : "text-text-muted-on-dark",
+                )}
+                strokeWidth={1.75}
+                aria-hidden
+              />
+
+              <span
+                className={cn(
+                  "mx-auto mt-4 hidden h-1 shrink-0 rounded-full transition-all duration-500 sm:mt-auto sm:block",
                   isActive
-                    ? cn("w-10", accentSolidClass[serviceAccent])
-                    : "w-8 bg-transparent motion-safe:group-hover:w-10 motion-safe:group-hover:bg-white/20",
+                    ? cn("w-12", accentSolidClass[serviceAccent])
+                    : cn(
+                        "w-8 bg-white/10",
+                        "motion-safe:group-hover:w-12",
+                        accentUnderlineHoverClass[serviceAccent],
+                      ),
                 )}
                 aria-hidden
               />
@@ -111,7 +144,7 @@ export default function ServiceShowcase() {
         })}
       </div>
 
-      <div ref={detailRef} className="mt-8 scroll-mt-28 sm:mt-10">
+      <div ref={detailRef} className="mt-6 scroll-mt-28 sm:mt-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={active.id}

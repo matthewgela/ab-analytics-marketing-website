@@ -15,7 +15,7 @@ export const siteConfig = {
   description:
     "Practitioner-led AI engineering. Google-vetted standards. Proven deployment across financial, defense, and sovereign environments.",
   url: siteUrl,
-  email: "matthew.gela@abanalytics.co.uk",
+  email: "eliyas@abanalytics.co.uk",
   address: {
     city: "Addis Ababa",
     country: "Ethiopia",

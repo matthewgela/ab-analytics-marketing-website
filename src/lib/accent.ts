@@ -56,4 +56,28 @@ export const accentSolidClass: Record<Accent, string> = {
   royal: "bg-brand-royal text-white",
 };
 
+export const accentMobileActiveBorderClass: Record<Accent, string> = {
+  cyan: "max-sm:border-l-[3px] max-sm:border-l-brand-cyan",
+  violet: "max-sm:border-l-[3px] max-sm:border-l-brand-violet",
+  emerald: "max-sm:border-l-[3px] max-sm:border-l-brand-emerald",
+  royal: "max-sm:border-l-[3px] max-sm:border-l-brand-royal",
+};
+
+export const accentTabHoverGlowClass: Record<Accent, string> = {
+  cyan: "sm:hover:shadow-[0_0_52px_rgba(14,165,233,0.42),0_20px_48px_rgba(14,165,233,0.22)]",
+  violet:
+    "sm:hover:shadow-[0_0_52px_rgba(139,92,246,0.42),0_20px_48px_rgba(139,92,246,0.22)]",
+  emerald:
+    "sm:hover:shadow-[0_0_52px_rgba(16,185,129,0.38),0_20px_48px_rgba(16,185,129,0.2)]",
+  royal:
+    "sm:hover:shadow-[0_0_52px_rgba(30,58,138,0.45),0_20px_48px_rgba(30,58,138,0.22)]",
+};
+
+export const accentUnderlineHoverClass: Record<Accent, string> = {
+  cyan: "motion-safe:group-hover:bg-brand-cyan/70",
+  violet: "motion-safe:group-hover:bg-brand-violet/70",
+  emerald: "motion-safe:group-hover:bg-brand-emerald/70",
+  royal: "motion-safe:group-hover:bg-brand-royal/70",
+};
+
 export const accentCycle: Accent[] = ["cyan", "violet", "emerald", "royal"];
