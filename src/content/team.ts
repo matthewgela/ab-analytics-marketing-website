@@ -78,4 +78,16 @@ export const deliveryDisciplines: DeliveryDiscipline[] = [
     description:
       "Infrastructure-as-code, cloud design, and operational telemetry.",
   },
+  {
+    id: "data-engineer",
+    name: "Data Engineers",
+    description:
+      "Data pipelines, warehousing, and platform engineering that keep models and applications fed with reliable data.",
+  },
+  {
+    id: "project-manager",
+    name: "Project Managers",
+    description:
+      "Delivery planning, stakeholder coordination, and clear communication from discovery through managed services.",
+  },
 ];

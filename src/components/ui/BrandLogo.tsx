@@ -3,15 +3,18 @@ import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
 import { cn } from "@/lib/cn";
 
+type BrandLogoSize = "nav" | "footer";
+
 type BrandLogoProps = {
-  size?: "nav" | "footer";
+  size?: BrandLogoSize;
   className?: string;
   asLink?: boolean;
 };
 
 const LOGO_WIDTH = 368;
 const LOGO_HEIGHT = 91;
-
+/** AB monogram width in logo-horizontal.png (px), including full B before the divider. */
+const AB_MARK_WIDTH = 118;
 const sizeStyles = {
   nav: {
     shell: "gap-2 px-2 py-1 sm:gap-2.5 sm:px-2.5 sm:py-1.5",
@@ -27,6 +30,11 @@ const sizeStyles = {
     title: "text-xs font-bold uppercase tracking-[0.22em] sm:text-sm",
     tagline: "text-[10px] leading-[1.4] tracking-[0.04em] sm:text-[11px]",
   },
+} as const;
+
+const monogramSizes = {
+  sm: "h-9 w-9 rounded-[22%] p-2",
+  md: "h-12 w-12 rounded-[22%] p-3",
 } as const;
 
 function LogoMark({
@@ -60,7 +68,7 @@ function LogoText({
   size,
   showTagline = true,
 }: {
-  size: "nav" | "footer";
+  size: BrandLogoSize;
   showTagline?: boolean;
 }) {
   const styles = sizeStyles[size];
@@ -89,6 +97,42 @@ function LogoText({
   );
 }
 
+/** AB monogram only — same crop as navbar, for compact rounded placements. */
+export function BrandMonogram({
+  size = "md",
+  className,
+  priority = false,
+}: {
+  size?: keyof typeof monogramSizes;
+  className?: string;
+  priority?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "flex shrink-0 items-center justify-center overflow-hidden bg-bg-deep",
+        monogramSizes[size],
+        className,
+      )}
+      aria-hidden
+    >
+      <div
+        className="relative w-[84%] overflow-hidden"
+        style={{ aspectRatio: `${AB_MARK_WIDTH} / ${LOGO_HEIGHT}` }}
+      >
+        <Image
+          src={assetPath("/brand/logo-horizontal.png")}
+          alt=""
+          width={LOGO_WIDTH}
+          height={LOGO_HEIGHT}
+          className="absolute top-0 left-0 h-full w-auto max-w-none"
+          priority={priority}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function BrandLogo({
   size = "nav",
   className,
@@ -99,7 +143,7 @@ export default function BrandLogo({
   const content = (
     <div
       className={cn(
-        "inline-flex items-center rounded-sm bg-bg-deep",
+        "brand-logo-shell inline-flex items-center rounded-sm bg-bg-deep",
         styles.shell,
         className,
       )}

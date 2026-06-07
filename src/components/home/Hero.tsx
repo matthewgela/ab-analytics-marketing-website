@@ -3,10 +3,10 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useRef, useSyncExternalStore } from "react";
 import HeroField from "@/components/background/HeroField";
+import { BrandMonogram } from "@/components/ui/BrandLogo";
 import MagneticButton from "@/components/ui/MagneticButton";
 import VisualFrame from "@/components/ui/VisualFrame";
 
@@ -14,7 +14,6 @@ const AntiGravityField = dynamic(
   () => import("@/components/background/AntiGravityField"),
   { ssr: false },
 );
-import { assetPath } from "@/lib/assetPath";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 
 const desktopHeadline = "Building AI-native software for Ethiopia";
@@ -126,21 +125,9 @@ export default function Hero() {
           >
             <motion.div
               variants={fadeUp}
-              className="mb-7 flex flex-col items-center gap-2.5 sm:mb-5 sm:hidden"
+              className="mb-7 flex justify-center sm:mb-5 sm:hidden"
             >
-              <div className="h-11 w-11 shrink-0 overflow-hidden rounded-[22%] bg-bg-deep">
-                <Image
-                  src={assetPath("/brand/monogram-hero.png")}
-                  alt=""
-                  width={130}
-                  height={123}
-                  className="h-full w-full object-cover"
-                  priority
-                />
-              </div>
-              <span className="text-[0.8125rem] font-semibold tracking-[0.02em] text-text-on-dark">
-                AB Analytics
-              </span>
+              <BrandMonogram size="md" priority />
             </motion.div>
 
             <motion.p
@@ -238,10 +225,10 @@ export default function Hero() {
               <VisualFrame
                 src="/images/hero/platform-stack.png"
                 alt="Enterprise AI platform stack from infrastructure to applications"
-                dark={!isLight}
+                dark
                 glow={!isLight}
                 fit="contain"
-                canvas={isLight ? "light" : "dark"}
+                canvas="dark"
                 className="mx-auto w-full max-w-[24rem] p-5 sm:max-w-[30rem] sm:p-6 md:max-w-[34rem] lg:max-w-[38rem] xl:max-w-[42rem]"
               />
             </motion.div>

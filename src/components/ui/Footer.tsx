@@ -10,7 +10,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="section-deep relative z-10 border-t hairline-border pb-[env(safe-area-inset-bottom,0px)]">
+    <footer className="footer-bar nav-shell relative z-10 border-t hairline-border bg-bg-deep pb-[env(safe-area-inset-bottom,0px)]">
       <div className="mx-auto max-w-7xl px-4 pt-14 pb-14 sm:px-6 sm:pt-20 sm:pb-20 md:px-8 md:pt-24 md:pb-24">
         <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3">
           <div>

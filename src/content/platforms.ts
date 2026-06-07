@@ -9,6 +9,13 @@ export type CloudPlatform = {
 
 export const cloudPlatforms: CloudPlatform[] = [
   {
+    id: "ethio-telecom",
+    name: "Ethio Telecom",
+    logo: "/images/platforms/ethio-telecom.png",
+    width: 440,
+    height: 118,
+  },
+  {
     id: "aws",
     name: "Amazon Web Services",
     logo: "/images/platforms/aws.svg",
@@ -25,9 +32,14 @@ export const cloudPlatforms: CloudPlatform[] = [
   },
 ];
 
+/** Prefer light-on-dark logo variants for dark UI surfaces. */
+export function resolvePlatformLogo(platform: CloudPlatform) {
+  return platform.logoDark ?? platform.logo;
+}
+
 export const cloudPlatformBannerLabel = "Cloud platforms";
 
-export const cloudPlatformHeadline = "Built for enterprise cloud";
+export const cloudPlatformHeadline = "Built for cloud and local infrastructure";
 
 export const cloudPlatformSubline =
-  "The cloud platforms we use to deploy AI systems and software applications in Ethiopia.";
+  "We deploy on local Ethiopian infrastructure through Ethio Telecom, alongside AWS and Google Cloud for enterprise AI systems and software applications.";

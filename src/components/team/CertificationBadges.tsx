@@ -1,24 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useTheme } from "next-themes";
-import { useSyncExternalStore } from "react";
 import type { LeaderCertification } from "@/content/certifications";
-import { cloudPlatforms } from "@/content/platforms";
+import { cloudPlatforms, resolvePlatformLogo } from "@/content/platforms";
 import { assetPath } from "@/lib/assetPath";
 import { cn } from "@/lib/cn";
-
-function subscribe() {
-  return () => {};
-}
-
-function getClientSnapshot() {
-  return true;
-}
-
-function getServerSnapshot() {
-  return false;
-}
 
 type CertificationBadgesProps = {
   certifications: LeaderCertification[];
@@ -42,19 +28,11 @@ export default function CertificationBadges({
   variant = "list",
   className,
 }: CertificationBadgesProps) {
-  const { resolvedTheme } = useTheme();
-  const mounted = useSyncExternalStore(
-    subscribe,
-    getClientSnapshot,
-    getServerSnapshot,
-  );
-  const isLight = mounted && resolvedTheme === "light";
   const platform = platformById[provider];
 
   if (certifications.length === 0 || !platform) return null;
 
-  const logoSrc =
-    !isLight && platform.logoDark ? platform.logoDark : platform.logo;
+  const logoSrc = resolvePlatformLogo(platform);
 
   if (variant === "inline") {
     return (

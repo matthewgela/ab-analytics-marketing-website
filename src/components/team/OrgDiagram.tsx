@@ -3,7 +3,9 @@
 import { motion } from "framer-motion";
 import {
   Brain,
+  ClipboardList,
   Cloud,
+  Database,
   Layout,
   Palette,
   Server,
@@ -17,7 +19,15 @@ import {
 } from "@/lib/accent";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 
-const disciplineIcons = [Layout, Server, Palette, Brain, Cloud];
+const disciplineIcons = [
+  Layout,
+  Server,
+  Palette,
+  Brain,
+  Cloud,
+  Database,
+  ClipboardList,
+];
 
 const disciplineAccents = [
   "cyan",
@@ -25,6 +35,8 @@ const disciplineAccents = [
   "emerald",
   "violet",
   "cyan",
+  "emerald",
+  "royal",
 ] as const;
 
 export default function OrgDiagram() {
@@ -35,7 +47,7 @@ export default function OrgDiagram() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
-        className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+        className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {deliveryDisciplines.map((discipline, i) => {
           const Icon = disciplineIcons[i] ?? Layout;
@@ -70,7 +82,7 @@ export default function OrgDiagram() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="mx-auto max-w-2xl"
+        className="mx-auto mt-10 max-w-2xl sm:mt-12 md:mt-0"
       >
         <SpotlightCard
           accent="cyan"
@@ -82,9 +94,10 @@ export default function OrgDiagram() {
             Multidisciplinary by design
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-text-muted-on-dark">
-            Every engagement draws on frontend developers, backend developers,
-            UI/UX designers, AI engineers, and cloud architects working
-            together to build, host, and manage software so you do not have to.
+            Every engagement draws on frontend and backend developers, UI/UX
+            designers, AI engineers, cloud architects, data engineers, and
+            project managers working together to build, host, and manage
+            software so you do not have to.
           </p>
         </SpotlightCard>
       </motion.div>

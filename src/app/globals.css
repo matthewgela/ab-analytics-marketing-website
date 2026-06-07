@@ -29,7 +29,7 @@
 }
 
 :root[data-theme="light"] {
-  --nav-surface: #152042;
+  --nav-surface: #0a1430;
   --surface-page: #f8fafc;
   --grid-overlay-opacity: 0.06;
   --text-on-dark: #0f1b34;
@@ -46,6 +46,11 @@
   --text-muted-on-dark: #94a3b8;
   --hairline: rgba(255, 255, 255, 0.1);
   --hairline-muted: rgba(255, 255, 255, 0.05);
+}
+
+.nav-shell .brand-logo-shell,
+.footer-bar .brand-logo-shell {
+  background-color: transparent;
 }
 
 @theme inline {
@@ -743,6 +748,11 @@ h4 {
 
 :root[data-theme="light"] .section-deep {
   background: var(--surface-page);
+}
+
+:root[data-theme="light"] .footer-bar {
+  background: var(--nav-surface);
+  color: var(--text-on-dark);
 }
 
 :root[data-theme="light"] .section-void {
