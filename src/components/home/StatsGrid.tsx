@@ -17,8 +17,8 @@ export default function StatsGrid() {
       <div className="relative">
         <SectionHeading
           eyebrow="Track Record"
-          title="Engineering at National Scale"
-          description="Quantified outcomes from production deployments across regulated industries."
+          title="Our experience"
+          description="A snapshot of the AI and software work behind AB Analytics."
           align="center"
           variant="dark"
         />

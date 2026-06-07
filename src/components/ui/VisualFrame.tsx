@@ -9,6 +9,10 @@ type VisualFrameProps = {
   className?: string;
   dark?: boolean;
   glow?: boolean;
+  /** cover fills the frame; contain shows the full image without cropping */
+  fit?: "cover" | "contain";
+  /** light canvas suits UI screenshots; none keeps the asset unobstructed */
+  canvas?: "dark" | "light" | "none";
 };
 
 export default function VisualFrame({
@@ -18,7 +22,11 @@ export default function VisualFrame({
   className,
   dark = false,
   glow = false,
+  fit = "cover",
+  canvas = "dark",
 }: VisualFrameProps) {
+  const isContain = fit === "contain";
+
   return (
     <div
       className={cn(
@@ -34,9 +42,15 @@ export default function VisualFrame({
         className,
       )}
     >
-      {dark && (
+      {dark && canvas === "dark" && (
         <div
-          className="absolute inset-0 z-0 rounded-2xl bg-gradient-to-br from-brand-cyan/15 via-brand-violet/5 to-brand-violet/15"
+          className="absolute inset-0 z-0 rounded-2xl bg-[#0b1531]"
+          aria-hidden
+        />
+      )}
+      {canvas === "light" && (
+        <div
+          className="absolute inset-0 z-0 rounded-2xl bg-[#f8fafc]"
           aria-hidden
         />
       )}
@@ -45,7 +59,12 @@ export default function VisualFrame({
         <img
           src={assetPath(src)}
           alt={alt}
-          className="relative z-[1] h-full w-full object-cover"
+          className={cn(
+            "relative z-[1] w-full",
+            isContain
+              ? "block h-auto w-full object-contain"
+              : "h-full object-cover",
+          )}
         />
       ) : (
         children

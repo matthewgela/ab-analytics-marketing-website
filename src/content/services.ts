@@ -2,14 +2,13 @@ import type { LucideIcon } from "lucide-react";
 import {
   Bot,
   CircuitBoard,
-  Cloud,
+  Code2,
   Lock,
 } from "lucide-react";
 
 export type Service = {
   id: string;
   title: string;
-  shortTitle: string;
   tagline: string;
   description: string;
   summary: string;
@@ -23,37 +22,35 @@ export type Service = {
 export const services: Service[] = [
   {
     id: "mlops",
-    title: "Industrialized MLOps & Production ML",
-    shortTitle: "MLOps & Production ML",
-    tagline: "AI factory foundations",
+    title: "Machine Learning at Scale",
+    tagline: "Production ML",
     description:
-      "Automated model pipelines, infrastructure-as-code, and production ML engineering built for national-scale deployment.",
+      "Automated model pipelines, infrastructure-as-code, and production ML engineering for larger deployments.",
     summary:
-      "We build the operational backbone that turns experimental models into reliable production systems — automated pipelines, observability, and engineering standards that hold up in regulated, high-stakes environments.",
+      "We help teams turn experimental models into reliable production systems with automated pipelines, observability, and engineering standards that work in regulated settings.",
     capabilities: [
       "MLOps and DataOps pipeline design with infrastructure-as-code",
       "End-to-end model training, fine-tuning, and lifecycle management",
-      "Model drift, bias monitoring, and real-time platform telemetry",
+      "Model drift, bias monitoring, and platform telemetry",
       "CI/CD for ML workloads with reproducible training and deployment",
     ],
     outcomes: [
       "Repeatable model deployment without manual intervention",
-      "Full operational visibility across training and inference",
-      "Production-grade ML that scales securely from day one",
+      "Clear visibility across training and inference",
+      "Production ML that scales securely from day one",
     ],
     icon: CircuitBoard,
-    image: "/images/services/mlops.svg",
+    image: "/images/services/mlops_pipeline.png",
     accent: "cyan",
   },
   {
     id: "agentic",
-    title: "Agentic & Generative AI Systems",
-    shortTitle: "Generative AI",
-    tagline: "LLM ecosystems at scale",
+    title: "Agentic AI Systems",
+    tagline: "Agentic AI",
     description:
-      "Complex LLM architectures, RAG pipelines, and secure conversational agents for enterprise and sovereign data environments.",
+      "LLM architectures, RAG pipelines, and secure conversational agents for enterprise data environments.",
     summary:
-      "We architect generative AI systems that go beyond demos — retrieval-augmented generation, multi-agent workflows, and guardrailed LLM applications designed to interact safely with databases, documents, and secure records.",
+      "We build generative AI systems that go beyond demos: retrieval-augmented generation, multi-agent workflows, and guardrailed LLM applications that work safely with databases, documents, and secure records.",
     capabilities: [
       "Retrieval-Augmented Generation (RAG) and knowledge-base integration",
       "Multi-agent orchestration and workflow automation",
@@ -62,57 +59,55 @@ export const services: Service[] = [
     ],
     outcomes: [
       "Production LLM applications with measurable accuracy and safety",
-      "Agents that operate within sovereign data boundaries",
+      "Agents that operate within secure enterprise data boundaries",
       "Generative AI integrated into existing enterprise workflows",
     ],
     icon: Bot,
-    image: "/images/services/agentic.svg",
+    image: "/images/services/agentic_systems.png",
     accent: "violet",
   },
   {
     id: "platform",
-    title: "Platform Engineering & Cloud Infrastructure",
-    shortTitle: "Platform & Cloud",
-    tagline: "Systems that scale",
+    title: "Application Development",
+    tagline: "Software applications",
     description:
-      "Custom software platforms, cloud architecture, and digitization systems engineered for mission-critical workloads.",
+      "Full-stack web and mobile applications, platforms, and integrations built for Ethiopian organisations.",
     summary:
-      "From sovereign cloud design to full-stack platform builds, we deliver the software and infrastructure layer that AI systems run on — multi-region deployments, custom digitization platforms, and enterprise integrations for public and private sector institutions.",
+      "We design and build software applications that people actually use — from customer-facing products to internal tools — alongside the cloud infrastructure needed to run them reliably in Ethiopia.",
     capabilities: [
-      "Multi-cloud architecture across AWS and Google Cloud Platform",
-      "Enterprise cloud architecture and multi-region deployments",
-      "Custom software and large-scale digitization platforms",
-      "API design, system integration, and data pipeline engineering",
+      "Full-stack web and mobile application development",
+      "Product engineering with UX, APIs, and third-party integrations",
+      "Custom platforms for operations, finance, logistics, and public services",
+      "Cloud deployment on AWS and Google Cloud Platform",
       "Platform engineering with Terraform, Kubernetes, and IaC standards",
     ],
     outcomes: [
-      "Mission-critical infrastructure with sovereign deployment options",
-      "Unified platforms replacing fragmented legacy systems",
-      "Cloud environments optimized for AI and data-intensive workloads",
+      "Applications tailored to local language, workflow, and connectivity needs",
+      "Unified platforms replacing fragmented spreadsheets and legacy tools",
+      "Reliable infrastructure with flexible deployment options",
     ],
-    icon: Cloud,
-    image: "/images/services/cloud.svg",
+    icon: Code2,
+    image: "/images/services/full_stack_software.png",
     accent: "emerald",
   },
   {
     id: "sovereign",
-    title: "Sovereign Data, Privacy & AI Strategy",
-    shortTitle: "Sovereign Data & Strategy",
-    tagline: "Governance and transformation",
+    title: "Data Privacy & AI Strategy",
+    tagline: "Privacy & governance",
     description:
-      "Privacy-enhancing technologies, data sovereignty frameworks, and strategic roadmaps for national-scale AI adoption.",
+      "Privacy-enhancing technologies, data governance frameworks, and practical roadmaps for AI adoption.",
     summary:
-      "We help organizations adopt AI without compromising data sovereignty — privacy-enhancing computation, mathematical safety proofs, capability assessments, and transformation roadmaps aligned to regulated, national-scale outcomes.",
+      "We help organisations adopt AI with strong privacy and governance: privacy-enhancing computation, capability assessments, and transformation roadmaps aligned to regulated outcomes.",
     capabilities: [
       "Privacy-Enhancing Technologies (PETs) and secure computation",
-      "Data sovereignty mapping and governance framework design",
+      "Data governance mapping and framework design",
       "AI capability assessments and transformation roadmaps",
       "Algorithmic analytics, segmentation, and data-driven decision layers",
     ],
     outcomes: [
-      "Absolute data sovereignty with privacy-preserving AI access",
-      "Clear strategic path from assessment to production deployment",
-      "Organizational readiness for long-term operational autonomy",
+      "Privacy-preserving access to data for AI workloads",
+      "Clear path from assessment to production deployment",
+      "Teams ready to run systems independently over time",
     ],
     icon: Lock,
     image: "/images/services/pets.svg",

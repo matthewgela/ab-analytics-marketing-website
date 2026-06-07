@@ -5,9 +5,9 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Enterprise Capabilities"
+        eyebrow="Capabilities"
         title="Services"
-        description="Four integrated capability areas engineered for national-scale AI industrialization, sovereign data governance, and operational autonomy."
+        description="Machine learning, agentic AI, application development, and data privacy — built for the organisations and products shaping Ethiopia’s digital economy."
       />
 
       <section className="px-4 pb-16 sm:pb-24 md:px-8 md:pb-28">

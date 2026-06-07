@@ -17,8 +17,8 @@ export default function TeamPage() {
     <>
       <PageHero
         eyebrow="Team & Delivery"
-        title="Practitioner-Led Leadership"
-        description="Elite practitioners with proven execution across global platforms, sovereign environments, and regional institutions."
+        title="Leadership"
+        description="A UK-founded team with hands-on experience delivering AI and software for Ethiopian businesses, institutions, and international clients."
       />
 
       <section className="px-4 pb-16 sm:pb-24 md:px-8 md:pb-28">
@@ -45,8 +45,8 @@ export default function TeamPage() {
           <div className="mt-12 sm:mt-24">
             <SectionHeading
               eyebrow="Delivery Model"
-              title="Operational Autonomy Pipeline"
-              description="A proven four-stage onboarding pipeline that transitions technical capabilities to your internal team."
+              title="Delivery approach"
+              description="We take care of your infrastructure needs. A four-stage process from discovery through to software your team can use on a yearly subscription or licence."
               variant="dark"
             />
             <PipelineSteps />
@@ -55,8 +55,8 @@ export default function TeamPage() {
           <div className="mt-12 sm:mt-24">
             <SectionHeading
               eyebrow="Structure"
-              title="Organization & Delivery Model"
-              description="A multidisciplinary team spanning design, engineering, and cloud architecture — built to transfer capability, not dependency."
+              title="Organisation & delivery model"
+              description="A multidisciplinary team spanning design, engineering, and cloud architecture, building software we host and manage so you can focus on your business."
               variant="dark"
             />
             <OrgDiagram />

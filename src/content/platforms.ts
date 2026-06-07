@@ -30,4 +30,4 @@ export const cloudPlatformBannerLabel = "Cloud platforms";
 export const cloudPlatformHeadline = "Built for enterprise cloud";
 
 export const cloudPlatformSubline =
-  "Mission-critical systems engineered and deployed on AWS and Google Cloud Platform.";
+  "The cloud platforms we use to deploy AI systems and software applications in Ethiopia.";

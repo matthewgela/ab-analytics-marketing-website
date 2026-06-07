@@ -83,8 +83,8 @@ export default function OrgDiagram() {
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-text-muted-on-dark">
             Every engagement draws on frontend developers, backend developers,
-            UI/UX designers, AI engineers, and cloud architects — working
-            together toward operational autonomy for your team.
+            UI/UX designers, AI engineers, and cloud architects working
+            together to build, host, and manage software so you do not have to.
           </p>
         </SpotlightCard>
       </motion.div>

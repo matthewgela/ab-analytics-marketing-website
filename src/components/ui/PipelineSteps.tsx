@@ -1,12 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  Factory,
-  GraduationCap,
-  Search,
-  ShieldCheck,
-} from "lucide-react";
+import { Code2, RefreshCw, Search, Server } from "lucide-react";
 import { useRef } from "react";
 import { pipelineSteps } from "@/content/pipeline";
 import {
@@ -18,9 +13,9 @@ import { fadeUp } from "@/lib/motion";
 
 const iconMap = {
   Search,
-  Factory,
-  ShieldCheck,
-  GraduationCap,
+  Code2,
+  Server,
+  RefreshCw,
 };
 
 const stepAccents = ["cyan", "violet", "emerald", "cyan"] as const;

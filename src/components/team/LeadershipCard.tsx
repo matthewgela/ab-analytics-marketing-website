@@ -94,7 +94,7 @@ export default function LeadershipCard({
               </span>
             ))}
           </div>
-          <p className="mt-3 line-clamp-6 text-sm leading-relaxed text-text-muted-on-dark md:text-[0.9375rem] md:leading-7">
+          <p className="mt-3 text-sm leading-relaxed text-text-muted-on-dark md:text-[0.9375rem] md:leading-7">
             {leader.bio}
           </p>
         </div>

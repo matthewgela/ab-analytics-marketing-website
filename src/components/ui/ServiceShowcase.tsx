@@ -104,7 +104,7 @@ export default function ServiceShowcase() {
                   {service.tagline}
                 </p>
                 <h3 className="mt-1 text-sm font-bold leading-snug tracking-tight text-text-on-dark sm:mt-2">
-                  {service.shortTitle}
+                  {service.title}
                 </h3>
               </div>
 
@@ -254,7 +254,9 @@ export default function ServiceShowcase() {
                     alt={active.title}
                     dark
                     glow
-                    className="aspect-[2/1] w-full sm:aspect-[16/10] lg:aspect-[4/3]"
+                    fit="contain"
+                    canvas="dark"
+                    className="aspect-[16/10] w-full"
                   />
                 </div>
               </div>

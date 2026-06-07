@@ -28,13 +28,13 @@ export default function ServiceCard({
         dark={dark}
         className="group flex h-full flex-col overflow-hidden p-0"
       >
-        <div className="relative aspect-[2/1] w-full overflow-hidden sm:aspect-[16/10]">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#0b1531]">
           <Image
             src={assetPath(service.image)}
             alt={service.title}
             fill
             sizes="(max-width: 768px) 100vw, 25vw"
-            className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-110"
+            className="object-contain transition-transform duration-500 motion-safe:group-hover:scale-[1.03]"
           />
         </div>
         <div className="flex flex-1 flex-col p-4 sm:p-6">

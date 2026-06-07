@@ -12,7 +12,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Get In Touch"
         title="Contact Us"
-        description="Initiate a partnership conversation. We respond to all enterprise inquiries within 48 hours."
+        description="Building something in Ethiopia? Tell us about your AI or software project — we respond within 48 hours."
       />
 
       <section className="px-4 pb-16 sm:pb-24 md:px-8 md:pb-28">
@@ -25,9 +25,7 @@ export default function ContactPage() {
                   <h3 className="font-bold text-text-on-dark">Headquarters</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-text-muted-on-dark">
-                  {siteConfig.address.city}, {siteConfig.address.country}
-                  <br />
-                  International deployment networks across three continents.
+                  {siteConfig.address.country}
                 </p>
               </GlassCard>
               <GlassCard dark>

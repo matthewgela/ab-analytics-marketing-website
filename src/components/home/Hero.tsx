@@ -17,10 +17,9 @@ const AntiGravityField = dynamic(
 import { assetPath } from "@/lib/assetPath";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 
-const desktopHeadline =
-  "Engineer AI that runs where stakes are highest";
+const desktopHeadline = "Building AI-native software for Ethiopia";
 
-const accentWord = "stakes";
+const accentWord = "Ethiopia";
 
 function subscribe() {
   return () => {};
@@ -129,14 +128,16 @@ export default function Hero() {
               variants={fadeUp}
               className="mb-7 flex flex-col items-center gap-2.5 sm:mb-5 sm:hidden"
             >
-              <Image
-                src={assetPath("/brand/monogram.svg")}
-                alt=""
-                width={36}
-                height={36}
-                className="h-9 w-9"
-                priority
-              />
+              <div className="h-11 w-11 shrink-0 overflow-hidden rounded-[22%] bg-bg-deep">
+                <Image
+                  src={assetPath("/brand/monogram-hero.png")}
+                  alt=""
+                  width={130}
+                  height={123}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </div>
               <span className="text-[0.8125rem] font-semibold tracking-[0.02em] text-text-on-dark">
                 AB Analytics
               </span>
@@ -146,7 +147,7 @@ export default function Hero() {
               variants={fadeUp}
               className="eyebrow mb-4 hidden text-brand-cyan sm:mb-5 sm:block sm:text-xs"
             >
-              Enterprise AI Engineering
+              AI & Software Engineering
             </motion.p>
 
             <motion.h1
@@ -155,12 +156,11 @@ export default function Hero() {
             >
               <span className="sm:hidden">
                 <span className="block text-[2.375rem] leading-[1.08]">
-                  Engineer AI that runs
+                  Building AI-native software
                 </span>
                 <span className="mt-2 block text-[1.5rem] font-semibold leading-[1.2]">
-                  where{" "}
-                  <span className="text-gradient-cyan">stakes</span> are
-                  highest
+                  for{" "}
+                  <span className="text-gradient-cyan">Ethiopia</span>
                 </span>
               </span>
               <span className="hidden sm:inline">
@@ -186,9 +186,9 @@ export default function Hero() {
               variants={fadeUp}
               className="mt-4 hidden max-w-xl text-sm leading-relaxed text-text-muted-on-dark sm:mt-6 sm:block sm:text-base lg:text-lg"
             >
-              Practitioner-led architecture. Google-vetted engineering standards.
-              Proven deployment across high-stakes financial, defense, and
-              sovereign environments.
+              Operating in the UK and Ethiopia, our team delivers world class
+              machine learning, agentic AI, and software applications for
+              startups, enterprises, and public institutions.
             </motion.p>
 
             <motion.div
@@ -222,25 +222,27 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className={
               isLight
-                ? "hidden w-full max-w-xs flex-shrink-0 sm:block sm:max-w-md lg:max-w-none lg:flex-1"
-                : "hero-visual-glow hidden w-full max-w-xs flex-shrink-0 sm:block sm:max-w-md lg:max-w-none lg:flex-1"
+                ? "hidden w-full flex-shrink-0 sm:block sm:max-w-xl lg:max-w-none lg:flex-1 lg:self-center lg:pl-2 xl:pl-6"
+                : "hero-visual-glow hidden w-full flex-shrink-0 sm:block sm:max-w-xl lg:max-w-none lg:flex-1 lg:self-center lg:pl-2 xl:pl-6"
             }
           >
             <motion.div
-              animate={reduceMotion ? {} : { y: [0, -8, 0] }}
+              animate={reduceMotion ? {} : { y: [0, -6, 0] }}
               transition={{
-                duration: 5,
+                duration: 6,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="relative z-[1]"
+              className="relative z-[1] w-full"
             >
               <VisualFrame
-                src="/images/hero/enterprise-ai.svg"
-                alt="Enterprise AI platform visualization"
-                dark
+                src="/images/hero/platform-stack.png"
+                alt="Enterprise AI platform stack from infrastructure to applications"
+                dark={!isLight}
                 glow={!isLight}
-                className="aspect-[4/3] w-full"
+                fit="contain"
+                canvas={isLight ? "light" : "dark"}
+                className="mx-auto w-full max-w-[24rem] p-5 sm:max-w-[30rem] sm:p-6 md:max-w-[34rem] lg:max-w-[38rem] xl:max-w-[42rem]"
               />
             </motion.div>
           </motion.div>

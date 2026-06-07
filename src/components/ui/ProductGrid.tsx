@@ -3,15 +3,10 @@
 import { motion } from "framer-motion";
 import { BarChart3, CircleAlert, Sparkles } from "lucide-react";
 import { products } from "@/content/products";
-import VisualFrame from "@/components/ui/VisualFrame";
+import ProductImage from "@/components/ui/ProductImage";
+import { productAssets } from "@/lib/productAssets";
 import { fadeUp } from "@/lib/motion";
 import { cn } from "@/lib/cn";
-
-const productImages: Record<string, string> = {
-  adey: "/images/products/adey-dashboard.svg",
-  nexio: "/images/products/nexio-dashboard.svg",
-  tena: "/images/products/tenaos-concept.svg",
-};
 
 const detailBlocks = [
   { label: "Challenge", key: "challenge" as const, icon: CircleAlert },
@@ -35,7 +30,7 @@ export default function ProductGrid() {
             {product.name}
             {product.status === "validation" && (
               <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-500">
-                Roadmap
+                Coming soon
               </span>
             )}
           </a>
@@ -81,7 +76,7 @@ export default function ProductGrid() {
                       </span>
                     ) : (
                       <span className="rounded-full bg-amber-500/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber-500">
-                        Roadmap
+                        Coming soon
                       </span>
                     )}
                   </div>
@@ -133,12 +128,12 @@ export default function ProductGrid() {
                     className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.18] blur-[110px] lg:block"
                     style={{ backgroundColor: product.accent }}
                   />
-                  <VisualFrame
-                    src={productImages[product.id]}
+                  <ProductImage
+                    previewSrc={productAssets[product.id].preview}
+                    fullSrc={productAssets[product.id].full}
                     alt={`${product.name} product preview`}
-                    dark
-                    glow
-                    className="relative aspect-[2/1] w-full sm:aspect-[16/10] lg:aspect-[4/3]"
+                    comingSoon={product.status === "validation"}
+                    className="rounded-2xl border hairline-border-strong shadow-lg shadow-brand-royal/20 sm:shadow-2xl sm:shadow-brand-royal/30"
                   />
                 </div>
               </div>

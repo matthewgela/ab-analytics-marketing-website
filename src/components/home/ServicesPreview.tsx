@@ -15,8 +15,8 @@ export default function ServicesPreview() {
     <section className="section-panel relative overflow-hidden px-4 py-10 sm:px-6 sm:py-14 md:px-10">
       <SectionHeading
         eyebrow="Capabilities"
-        title="Who We Are"
-        description="Elite artificial intelligence engineering specializing in the industrialization of machine learning and generative AI."
+        title="Our Services"
+        description="Machine learning, agentic AI, and application development — the three areas we work in most for Ethiopian organisations."
         align="center"
         variant="dark"
       />

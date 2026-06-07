@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { assetPath } from "@/lib/assetPath";
 
 /** Production domain — add public/CNAME with this value when ready to go live. */
 export const productionSiteUrl = "https://abanalytics.co.uk";
@@ -10,15 +11,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl;
 
 export const siteConfig = {
   name: "AB Analytics",
-  tagline:
-    "Engineer AI that runs where stakes are highest",
+  tagline: "Building AI-native software for Ethiopia",
   description:
-    "Practitioner-led AI engineering. Google-vetted standards. Proven deployment across financial, defense, and sovereign environments.",
+    "Operating in the UK and Ethiopia. World class machine learning, agentic AI, and software applications for startups, enterprises, and public institutions.",
   url: siteUrl,
   email: "eliyas@abanalytics.co.uk",
   address: {
-    city: "Addis Ababa",
-    country: "Ethiopia",
+    city: "",
+    country: "United Kingdom",
   },
 };
 
@@ -41,6 +41,10 @@ export function createMetadata({
     title: pageTitle,
     description: pageDescription,
     metadataBase: new URL(siteConfig.url),
+    icons: {
+      icon: assetPath("/brand/monogram.png"),
+      apple: assetPath("/brand/apple-touch-icon.png"),
+    },
     alternates: { canonical: url },
     openGraph: {
       title: pageTitle,
@@ -48,7 +52,7 @@ export function createMetadata({
       url,
       siteName: siteConfig.name,
       type: "website",
-      locale: "en_US",
+      locale: "en_GB",
     },
     twitter: {
       card: "summary_large_image",

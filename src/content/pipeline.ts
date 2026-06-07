@@ -3,7 +3,7 @@ export type PipelineStep = {
   step: number;
   title: string;
   description: string;
-  icon: "Search" | "Factory" | "ShieldCheck" | "GraduationCap";
+  icon: "Search" | "Code2" | "Server" | "RefreshCw";
 };
 
 export const pipelineSteps: PipelineStep[] = [
@@ -12,32 +12,32 @@ export const pipelineSteps: PipelineStep[] = [
     step: 1,
     title: "Diagnostic & Strategy Map",
     description:
-      "Assessing requirements and sovereignty needs across your organization and infrastructure landscape.",
+      "Reviewing requirements, constraints, and infrastructure across your organisation.",
     icon: "Search",
   },
   {
-    id: "mlops",
+    id: "build",
     step: 2,
-    title: "MLOps Factory Deployment",
+    title: "Design & Build",
     description:
-      "Setting up automated model pipelines, infrastructure-as-code, and custom engineering foundations.",
-    icon: "Factory",
+      "Designing and building your AI application or software solution to agreed requirements and timelines.",
+    icon: "Code2",
   },
   {
-    id: "pets",
+    id: "hosting",
     step: 3,
-    title: "PETs Integration",
+    title: "Hosted Deployment",
     description:
-      "Applying data isolation protocols and mathematical privacy bounds for sovereign data governance.",
-    icon: "ShieldCheck",
+      "Deploying on managed infrastructure — we take care of hosting and operations so your team can use the software without running servers or cloud ops.",
+    icon: "Server",
   },
   {
-    id: "transfer",
+    id: "managed",
     step: 4,
-    title: "Tech Transfer & Upskilling",
+    title: "Managed Services",
     description:
-      "Empowering your internal team to take full ownership of the technology stack and operations.",
-    icon: "GraduationCap",
+      "Ongoing hosting, monitoring, updates, and support on a yearly subscription or licence fee.",
+    icon: "RefreshCw",
   },
 ];
 
@@ -54,7 +54,7 @@ export const pillars = [
   },
   {
     id: "insights",
-    title: "Data Driven Insights",
+    title: "Data-Driven Insights",
     icon: "BarChart3" as const,
   },
   {
@@ -71,20 +71,20 @@ export const pillars = [
 
 export const stats = [
   {
-    value: "50+",
-    label: "Production AI Applications Engineered across Financial, Defense, and Retail Sectors.",
+    value: "20+",
+    label: "Production AI applications delivered across finance, defence, and retail.",
   },
   {
-    value: "10 Yrs",
-    label: "Deep Specialized MLOps and Enterprise Platform Experience.",
+    value: "16+ Yrs",
+    label: "Combined experience in MLOps and enterprise platform engineering.",
   },
   {
     value: "100%",
     label:
-      "Operational Autonomy focus. We transition technical capabilities so organizations own their technology stack.",
+      "We take care of infrastructure and day-to-day operations so you can focus on using the software.",
   },
   {
-    value: "3",
-    label: "Continents Deployed — Addis Ababa headquarters with international deployment networks.",
+    value: "2",
+    label: "Based in the UK, with most of our product work delivered in Ethiopia.",
   },
 ];

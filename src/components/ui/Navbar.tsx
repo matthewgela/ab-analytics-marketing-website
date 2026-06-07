@@ -1,9 +1,8 @@
 "use client";
 
 import { Menu, Moon, Sun, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
-import { assetPath } from "@/lib/assetPath";
+import BrandLogo from "@/components/ui/BrandLogo";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useSyncExternalStore } from "react";
@@ -73,16 +72,7 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 px-5 sm:h-16 sm:gap-3 sm:px-6 md:px-8">
-        <Link href="/" className="flex shrink-0 items-center">
-          <Image
-            src={assetPath("/brand/logo-horizontal-light.svg")}
-            alt="AB Analytics"
-            width={148}
-            height={30}
-            className="h-6 w-auto sm:h-7 md:h-8"
-            priority
-          />
-        </Link>
+        <BrandLogo size="nav" />
 
         <div className="hidden items-center gap-6 md:flex lg:gap-8">
           {navLinks.map((link) => {

@@ -21,10 +21,10 @@ export const leaders: Leader[] = [
     id: "eliyas",
     name: "Eliyas Woldegeorgis",
     role: "Chief Executive Officer",
-    bio: "PhD in AI Robustness and Privacy. Over 8 years leading data science. Former Managing Data Scientist leading massive privacy evaluations for global, highly-regulated platforms (TikTok).",
+    bio: "Leads strategy and delivery at AB Analytics, with experience guiding data science teams in privacy-sensitive settings. Specialises in privacy-enhancing technologies — from differential privacy to data protection — and production ML spanning computer vision and embedded systems.",
     initials: "EW",
     accent: "#0EA5E9",
-    credentials: ["PhD, AI Privacy", "Ex-TikTok", "Data Science Lead"],
+    credentials: ["Privacy-Enhancing Technologies", "Computer Vision"],
     certifications: eliyasCertifications,
     linkedin: "https://uk.linkedin.com/in/eliyas-woldegeorgis-850767b9",
   },
@@ -32,10 +32,10 @@ export const leaders: Leader[] = [
     id: "matthew",
     name: "Matthew Gela",
     role: "Chief Technology Officer",
-    bio: "Principal AI Engineer and former Technical Delivery Lead on behalf of a premier global Google Cloud Partner of the Year. Triple-certified Google Cloud Professional — Cloud Architect, ML Engineer, and Data Engineer. Terraform Certified Associate.",
+    bio: "Drives technical strategy and delivery at AB Analytics, with experience leading multidisciplinary data science and engineering teams. Specialises in LLM and generative AI — from chatbots to production-scale deployments — and end-to-end machine learning on cloud-native platforms.",
     initials: "MG",
     accent: "#8B5CF6",
-    credentials: ["Terraform Certified Associate"],
+    credentials: ["LLM & Generative AI", "Cloud-Native ML Engineering"],
     certifications: matthewCertifications,
     linkedin: "https://uk.linkedin.com/in/mgela",
   },
@@ -52,13 +52,13 @@ export const deliveryDisciplines: DeliveryDiscipline[] = [
     id: "frontend",
     name: "Frontend Developers",
     description:
-      "Production-grade interfaces, design systems, and performant client applications.",
+      "Production interfaces, design systems, and performant client applications.",
   },
   {
     id: "backend",
     name: "Backend Developers",
     description:
-      "APIs, data layers, integrations, and platform services built for scale.",
+      "APIs, data layers, integrations, and platform services built to scale.",
   },
   {
     id: "design",
@@ -76,6 +76,6 @@ export const deliveryDisciplines: DeliveryDiscipline[] = [
     id: "cloud",
     name: "Cloud Architects",
     description:
-      "Infrastructure-as-code, sovereign cloud design, and operational telemetry.",
+      "Infrastructure-as-code, cloud design, and operational telemetry.",
   },
 ];

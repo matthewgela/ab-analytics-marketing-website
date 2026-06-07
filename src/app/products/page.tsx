@@ -7,7 +7,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Product Gateway"
         title="Products"
-        description="Production-grade software platforms built for sovereign, high-stakes operational environments."
+        description="Real products we have designed and shipped in Ethiopia — for logistics, property, and healthcare."
       />
 
       <section className="px-4 pb-16 sm:pb-24 md:px-8 md:pb-28">

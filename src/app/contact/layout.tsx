@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "Contact",
   description:
-    "Initiate a partnership with AB Analytics. Enterprise intake form with 48-hour response time.",
+    "Contact AB Analytics. We respond to enquiries within 48 hours.",
   path: "/contact",
 });
 

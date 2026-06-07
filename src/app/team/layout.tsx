@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "Team",
   description:
-    "Meet AB Analytics leadership and explore our operational autonomy delivery pipeline and organizational structure.",
+    "Meet AB Analytics leadership and learn how we deliver and hand over AI systems.",
   path: "/team",
 });
 
