@@ -14,6 +14,7 @@ type MagneticButtonProps = {
   variant?: "primary" | "secondary" | "ghost";
   accent?: Accent;
   className?: string;
+  disabled?: boolean;
 };
 
 const variantStyles = {
@@ -51,6 +52,7 @@ export default function MagneticButton({
   variant = "primary",
   accent = "cyan",
   className,
+  disabled = false,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -62,7 +64,7 @@ export default function MagneticButton({
   const isResponsiveAuto = className?.includes("sm:w-auto");
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
+    if (disabled || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -85,6 +87,7 @@ export default function MagneticButton({
   const classes = cn(
     "inline-flex min-h-11 items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-200",
     variantStyles[variant][accent],
+    disabled && "pointer-events-none opacity-60",
     className,
   );
 
@@ -115,7 +118,12 @@ export default function MagneticButton({
   }
 
   return (
-    <button type={type} onClick={onClick} className={wrapperClass}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={wrapperClass}
+    >
       {content}
     </button>
   );

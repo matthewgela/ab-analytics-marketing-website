@@ -43,8 +43,14 @@ Replace placeholder SVGs in `public/brand/` with your official logo files. See `
 
 ## Contact Form
 
-Submissions POST to `/api/contact` and log to the server console. Wire to Resend, SendGrid, or HubSpot when ready.
+Submissions are sent to [Formspree](https://formspree.io) via AJAX from the static site (home intake form and `/contact` page). The default endpoint is `https://formspree.io/f/xbdeganl`.
+
+Notification delivery is configured in the Formspree dashboard (not in this repo). Set the form’s email action to `matthew.gela@abanalytics.co.uk` — add and verify that address under **Account → Linked emails**, then update the form **Workflow → Email → Settings**.
 
 ## Environment
 
-Optional: set `NEXT_PUBLIC_SITE_URL` for canonical URLs and sitemap.
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_SITE_URL` | Canonical URLs and sitemap (optional locally) |
+| `NEXT_PUBLIC_BASE_PATH` | Set to `/ab-analytics-marketing-website` for GitHub Pages |
+| `NEXT_PUBLIC_CONTACT_ENDPOINT` | Formspree form URL (optional; defaults to the project form) |

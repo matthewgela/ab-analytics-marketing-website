@@ -10,7 +10,7 @@ import {
   type SimpleContactFormData,
 } from "@/lib/schemas";
 import { cn } from "@/lib/cn";
-import { siteConfig } from "@/lib/seo";
+import { submitContactForm } from "@/lib/contact";
 
 const inputClass =
   "w-full rounded-xl border hairline-border bg-bg-deep/60 px-4 py-3 text-base text-text-on-dark placeholder:text-text-muted-on-dark/50 outline-none transition-colors focus:border-brand-cyan/50 focus:ring-1 focus:ring-brand-cyan/20";
@@ -25,6 +25,7 @@ export default function SimpleContactForm({
   dark = true,
 }: SimpleContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -35,30 +36,17 @@ export default function SimpleContactForm({
   });
 
   const onSubmit = async (data: SimpleContactFormData) => {
-    const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+    setSubmitError(null);
 
-    if (endpoint) {
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: formType, ...data }),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-        reset();
-      }
+    const result = await submitContactForm({ formType, ...data });
+
+    if (result.ok) {
+      setSubmitted(true);
+      reset();
       return;
     }
 
-    const subject = encodeURIComponent(
-      formType === "intake" ? "Partnership inquiry" : "Contact inquiry",
-    );
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`,
-    );
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    reset();
+    setSubmitError(result.message);
   };
 
   const fieldClass = dark
@@ -83,6 +71,15 @@ export default function SimpleContactForm({
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <input
+            type="text"
+            name="_gotcha"
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+            aria-hidden
+          />
+
           <div>
             <label
               className={cn(
@@ -96,6 +93,7 @@ export default function SimpleContactForm({
               {...register("name")}
               className={fieldClass}
               placeholder="Your full name"
+              disabled={isSubmitting}
             />
             {errors.name && (
               <p className="mt-1 text-xs text-red-400">{errors.name.message}</p>
@@ -116,6 +114,7 @@ export default function SimpleContactForm({
               type="email"
               className={fieldClass}
               placeholder="you@company.com"
+              disabled={isSubmitting}
             />
             {errors.email && (
               <p className="mt-1 text-xs text-red-400">
@@ -138,6 +137,7 @@ export default function SimpleContactForm({
               rows={5}
               className={cn(fieldClass, "resize-none")}
               placeholder="Tell us about your project, timeline, or how we can help..."
+              disabled={isSubmitting}
             />
             {errors.message && (
               <p className="mt-1 text-xs text-red-400">
@@ -146,7 +146,21 @@ export default function SimpleContactForm({
             )}
           </div>
 
-          <MagneticButton type="submit" variant="primary" className="w-full">
+          {submitError && (
+            <p
+              role="alert"
+              className="rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+            >
+              {submitError}
+            </p>
+          )}
+
+          <MagneticButton
+            type="submit"
+            variant="primary"
+            className="w-full"
+            disabled={isSubmitting}
+          >
             {isSubmitting ? "Sending..." : "Send message"}
           </MagneticButton>
         </form>

@@ -32,6 +32,7 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: https://matthewgela.github.io/ab-analytics-marketing-website
           NEXT_PUBLIC_BASE_PATH: /ab-analytics-marketing-website
+          NEXT_PUBLIC_CONTACT_ENDPOINT: https://formspree.io/f/xbdeganl
 
       - uses: actions/upload-pages-artifact@v3
         with:
